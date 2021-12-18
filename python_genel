@@ -1,0 +1,3 @@
+#keywords
+import keyword
+print(keyword.kwlist,len(keyword.kwlist))
