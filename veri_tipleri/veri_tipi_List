@@ -1,0 +1,3 @@
+ilk_liste = []
+print(ilk_liste)
+list('Merhaba')
