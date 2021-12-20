@@ -1,1 +1,4 @@
 import seaborn as sns
+
+#sns içindeki datasetleri görmek istersek alttaki kodu çalıştırmalıyız.
+sns.get_dataset_names()
