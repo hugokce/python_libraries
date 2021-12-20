@@ -7,4 +7,21 @@ sns.get_dataset_names()
  'exercise', 'flights', 'fmri', 'gammas', 'geyser', 'iris', 'mpg', 'penguins', 'planets',
  'taxis', 'tips', 'titanic']
  
+ sns.axes_style()
  
+ {'axes.facecolor': 'white', 'axes.edgecolor': 'black', 'axes.grid': False, 'axes.axisbelow': 'line',
+ 'axes.labelcolor': 'black',
+ 'figure.facecolor': (1, 1, 1, 0),
+ 'grid.color': '#b0b0b0', 'grid.linestyle': '-',
+ 'text.color': 'black',
+ 'xtick.color': 'black', 'ytick.color': 'black', 'xtick.direction': 'out', 'ytick.direction': 'out',
+ 'lines.solid_capstyle': 'projecting',
+ 'patch.edgecolor': 'black',
+ 'image.cmap': 'viridis',
+ 'font.family': ['sans-serif'],
+ 'font.sans-serif': ['DejaVu Sans',  'Bitstream Vera Sans',  'Computer Modern Sans Serif',
+  'Lucida Grande',  'Verdana',  'Geneva',  'Lucid',  'Arial',  'Helvetica',  'Avant Garde',  'sans-serif'],
+ 'patch.force_edgecolor': False,
+ 'xtick.bottom': True, 'xtick.top': False,
+ 'ytick.left': True, 'ytick.right': False,
+ 'axes.spines.left': True, 'axes.spines.bottom': True, 'axes.spines.right': True, 'axes.spines.top': True}
