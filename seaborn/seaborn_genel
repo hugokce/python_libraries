@@ -25,3 +25,18 @@ sns.get_dataset_names()
  'xtick.bottom': True, 'xtick.top': False,
  'ytick.left': True, 'ytick.right': False,
  'axes.spines.left': True, 'axes.spines.bottom': True, 'axes.spines.right': True, 'axes.spines.top': True}
+
+sns.plotting_context()
+
+{'font.size': 10.0,
+ 'axes.labelsize': 'medium', 'axes.titlesize': 'large',
+ 'xtick.labelsize': 'medium', 'ytick.labelsize': 'medium', 'legend.fontsize': 'medium',
+ 'axes.linewidth': 0.8, 'grid.linewidth': 0.8,
+ 'lines.linewidth': 1.5, 'lines.markersize': 6.0, 'patch.linewidth': 1.0,
+ 'xtick.major.width': 0.8, 'ytick.major.width': 0.8,
+ 'xtick.minor.width': 0.6, 'ytick.minor.width': 0.6,
+ 'xtick.major.size': 3.5, 'ytick.major.size': 3.5,
+ 'xtick.minor.size': 2.0, 'ytick.minor.size': 2.0}
+ 
+ 
+ 
