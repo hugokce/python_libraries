@@ -2,3 +2,9 @@ import seaborn as sns
 
 #sns içindeki datasetleri görmek istersek alttaki kodu çalıştırmalıyız.
 sns.get_dataset_names()
+
+['anagrams', 'anscombe', 'attention', 'brain_networks', 'car_crashes', 'diamonds', 'dots',
+ 'exercise', 'flights', 'fmri', 'gammas', 'geyser', 'iris', 'mpg', 'penguins', 'planets',
+ 'taxis', 'tips', 'titanic']
+ 
+ 
