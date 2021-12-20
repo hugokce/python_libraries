@@ -38,5 +38,6 @@ sns.plotting_context()
  'xtick.major.size': 3.5, 'ytick.major.size': 3.5,
  'xtick.minor.size': 2.0, 'ytick.minor.size': 2.0}
  
- 
+ sns.choose_colorbrewer_palette(data_type='q')
+ #name, n ve desat seçmeyi sağlayan drop-down bir ekran sağlıyor
  
