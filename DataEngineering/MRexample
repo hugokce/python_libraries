@@ -33,8 +33,9 @@ if __name__=='__main__':
 
 
 
-
-
+çalıştırmak için anaconda prompt kullanılabilir
+python RatingsBreakdown.py u.data
+u.data ml-100k aratıldığında bulunan zip klasörde yer almaktadır.
 
 Kaynaklar
 https://www.udemy.com/course/the-ultimate-hands-on-hadoop-tame-your-big-data/learn/lecture/5963046#overview
