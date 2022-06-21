@@ -1,0 +1,9 @@
+Python ile mapreduce yapmak için fonksiyonlar
+
+def mapper_get_ratings(self,_, line):
+	(userID,movieID,rating,timestamp)=line.strip('\t')
+	yield rating 1
+
+
+Kaynaklar
+https://www.udemy.com/course/the-ultimate-hands-on-hadoop-tame-your-big-data/learn/lecture/5963046#overview
