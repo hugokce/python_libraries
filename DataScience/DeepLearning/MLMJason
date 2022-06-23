@@ -21,6 +21,8 @@ print('sklearn: %s' % sklearn.__version__)
 
 Paketler yoksa pip install scipy numpy matplotlib pandas statsmodels sklearn deriz
 
+conda update scikit-learn ile güncelleme alalım
+
 
 
 
