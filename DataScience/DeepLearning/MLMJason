@@ -39,7 +39,11 @@ print('tensorflow: %s' % tensorflow.__version__)
 import keras
 print('keras: %s' % keras.__version__)
 
+from numpy import loadtxt
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
 
+Jupyter notebook üzerinden devam edelim
 
 
 
