@@ -46,3 +46,4 @@ print('keras: %s' % keras.__version__)
 
 Kaynak
 https://machinelearningmastery.com/setup-python-environment-machine-learning-deep-learning-anaconda/
+https://machinelearningmastery.com/tutorial-first-neural-network-python-keras/?utm_source=drip&utm_medium=email&utm_campaign=Deep+learning+with+Keras&utm_content=Deep+learning+with+Keras
