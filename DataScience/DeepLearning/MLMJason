@@ -23,6 +23,21 @@ Paketler yoksa pip install scipy numpy matplotlib pandas statsmodels sklearn der
 
 conda update scikit-learn ile güncelleme alalım
 
+Deep learning paketlerini yükleyelim
+conda install theano
+conda install -c conda-forge tensorflow
+pip install keras
+
+
+# theano
+import theano
+print('theano: %s' % theano.__version__)
+# tensorflow
+import tensorflow
+print('tensorflow: %s' % tensorflow.__version__)
+# keras
+import keras
+print('keras: %s' % keras.__version__)
 
 
 
