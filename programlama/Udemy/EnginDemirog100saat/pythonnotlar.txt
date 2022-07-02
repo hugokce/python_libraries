@@ -1,0 +1,1562 @@
+https://www.udemy.com/course/programcilik-kursu/learn/lecture/16355380#overview
+
+veri - hesaplama 
+Ödev1
+2 adet sayısal değişken tanımlayınız. 3-5
+Bu sayılara istediğiniz değeri atayınız.
+Bu sayılardan hangisi büyükse, ekrana yazdırınız.
+
+Bu ödev ile ilgili sorular
+Sayıları değiştirdiğinizde doğru sonucu aldınız mı?
+Sayıları eşit verdiğinizde ekrana bir şey yazmaması gerekiyor. Sizinki nasıl?
+
+Ödev2
+3 adet sayısal değişken tanımlayınız.
+Bu sayılardan en büyük ve en küçük olanı ekrana ayrı ayrı yazdırınız.
+Bu ödev ile ilgili sorular
+Farklı kombinasyonlar yaptığınızda doğru sonuca ulaştınız mı?
+
+Ödev3
+altin.in web sayfasına gidiniz.
+Burada şarta bağlı değişken kısımları bulunuz.
+Bu ödev ile ilgili sorular
+Şarta bağlı değişken kısımlar nerelerdir? (Ekran resmi alabilirsiniz. İlgili yerleri gösteriniz.)
+
+Ödev4
+Aynı örneği, öğrencilerini listelemek isteyen bir öğretmen için siz yapınız. (Öğrenci isimleri)
+Bu ödev ile ilgili sorular
+Copy-paste yapmadan çözdünüz mü?
+"Ben bu işi yapabiliyorum sanırım" demeye başladınız mı? :)
+
+Ödev5
+hepsiburada.com sitesine gidiniz.
+Burada dizi verisi olarak tutulabilecek yerler nerelerdir?
+Bu ödev ile ilgili sorular
+İsterseniz ekran görüntüsüyle cevabınızı çizip atabilirsiniz.
+
+anaconda kurduk
+hoca spyder kullanıyor
+
+Bölüm 4
+Temel ve Workshop kısmı dokümanları var.
+
+Bölüm7
+Workshop Pozitif mi Negatif Mi
+
+deger=int(input("Lütfen Bir Sayi Giriniz: "))
+
+if deger>0:
+	print("Pozitiftir")
+elif deger==0:
+	print("Sıfırdır")
+else:
+	print("Negatiftir")
+
+En büyük sayı örneği
+
+sayi1=int(input("Birinci sayi: "))
+sayi2=int(input("İkinci sayi: "))
+sayi3=int(input("Üçüncü sayi: "))
+
+if (sayi1>=sayi2) and (sayi1>=sayi3):
+	enBuyuk=sayi1
+elif (sayi2>=sayi1) and (sayi2>=sayi3):
+	enBuyuk=sayi2
+else:	
+	enBuyuk=sayi2
+
+print(enBuyuk)
+
+bölüm9
+while döngüsü
+n=10
+sum=0
+i=1
+while i<=n:
+	sum=sum+i
+	i=i+1   #counter update ediyoruz
+
+
+sayac = 1
+sonuc = 0
+
+while sayac<=10:
+    sonuc = sonuc + sayac
+    sayac = sayac + 1
+print(sonuc)
+
+
+for döngüsünde kendisi iterasyon yapıyor
+ama while döngüsünde sayaç arttırma yapmamız gerekiyor.
+
+sayi = int(input("Kaç yıldız olsun?"))
+yildiz = ""
+for x in range(1,sayi + 1):
+    yildiz = yildiz + "*"
+    print(yildiz)
+
+çıktısı 
+*
+**
+*** gibidir
+
+Asal sayı örneği
+# 2,3,5,7,11,13
+
+sayi = int(input("Sayı giriniz : "))
+asalMi = True
+for x in range(2,sayi):
+    if (sayi % x) == 0:
+        asalMi = False
+        break
+
+if asalMi:
+    print("ASAL")
+else:
+    print("ASAL DEĞİL")
+
+
+Bölüm 10
+fonksiyonlar
+bunu değer döndüren ve döndürmeyen olarak ayırabiliriz
+return kullanılır
+def dikUcgenAlaniHesapla(a,b):
+    return a*b/2
+alan = dikUcgenAlaniHesapla(2,3)
+print(alan)
+
+lambda kullanımı
+dikUcgenAlaniHesapla2 = lambda a,b : a*b/2
+print(dikUcgenAlaniHesapla2(3,6))
+tek satırda bitmesi gerekiyor lambdada.
+
+x = dikUcgenAlaniHesapla2  değişkene atayıp onu çağırabiliriz
+print(x(4,5))
+
+Workshop Faktoriyel
+sayi = int(input("Sayı : "))
+faktoriyel = 1  0ın tüm çarpımları 0dır o yüzden 1 ile başlar
+
+if sayi<0:
+    print("Negatif sayıların faktoriyeli hesaplanamaz")
+elif sayi==0:
+    print("Sonuç : 1")
+else:
+    for i in range(1,sayi+1):
+        faktoriyel = faktoriyel * i
+    print("Sonuç : ",faktoriyel)
+
+
+Matris toplama örneği
+x = [[1,3,5],[2,4,1],[1,5,7]]
+y = [[3,3,4],[2,4,1],[3,5,4]]
+
+sonuc = [[0,0,0],[0,0,0],[0,0,0]]
+
+sonuc[0][0] = x[0][0]+y[0][0]
+sonuc[0][1] = x[0][0]+y[0][0]
+sonuc[0][2] = x[0][0]+y[0][0]
+sonuc[1][0] = x[0][0]+y[0][0]
+sonuc[1][1] = x[0][0]+y[0][0]
+sonuc[1][2] = x[0][0]+y[0][0]
+sonuc[2][0] = x[0][0]+y[0][0]
+sonuc[2][1] = x[0][0]+y[0][0]
+sonuc[2][2] = x[0][0]+y[0][0]
+
+for i in range(len(x)):
+    for j in range(len(y)):
+        sonuc[i][j] = x[i][j]+y[i][j]
+        
+print(sonuc)
+
+kelime sıralama örneği
+cumle = "bugün hava çok güzel"
+kelimeler = cumle.split()
+kelimeler.sort()
+print(kelimeler)
+
+for kelime in kelimeler:
+    print(kelime)
+
+Bölüm12 
+Classlar
+Onlarca fonksiyonumuz var ve bunların bazıları birbirleriyle ilişkili olsun
+bunları bir classın içinde topluyoruz ki fonksiyonun adını hatırlamak
+zorunda kalmayalım diye.
+matematik classında topla, cıkar çarp böl fonksiyonları yer alır.
+bankacılıkta müşteri ekle çıkar sil, ara, listele vs işlemleri için class oluşabilir
+class tanımlarken adı büyük harfle başlamalı genelde öyle.
+class Matematik:
+	def topla(sayi1,sayi2):
+		return sayi1+sayi2
+
+matematik=Matematik() dersek buna instance örnek deniyor
+bellekte matematik isminde nesne oluşuyor.
+matematik. deyince altındaki fonksiyonlar geliyor
+print(matematik.topla(2,78)) dersek 3 parametre verdin der
+2 parametre alıyor der o yüzden başına self parametresi ekleriz
+ilk gönderdiğimiz parametre self olması lazım
+self classın kendisine refere ediyor.
+self dediğimiz matematik classına denk geliyor yani
+classın içinde aslında def __init__(): çalışır
+init boş verirsek kızar yine içine self yazıyoruz yine
+def __init__():  buna constructor bloğu deriz
+init içine sayi1 sayi2 eklersek o zaman alttaki fonksiyonlarda 
+sayi1 sayi2 yazısını kaldırırız
+class Matematik:
+    def __init__(self,sayi1,sayi2):   içine ekledik
+        self.sayi1 = sayi1
+        self.sayi2 = sayi2
+    def topla(self):  buradan kaldırdık sayi1 ve sayi2yi
+        return self.sayi1 + self.sayi2  bunların başına da self. ekleriz
+
+class Matematik:
+    def __init__(self,sayi1,sayi2):
+        self.sayi1 = sayi1
+        self.sayi2 = sayi2
+    def topla(self):
+        return self.sayi1 + self.sayi2    
+    def cikar(self):
+        return self.sayi1 - self.sayi2    
+    def carp(self):
+        return self.sayi1 * self.sayi2    
+    def bol(self):
+        return self.sayi1 / self.sayi2
+
+Property için kişi classı oluşturalım Person
+class Person:
+	def __init__(self,firstName,lastName,age):
+		self.firstName=firstName
+		self.lastName=lastName
+		self.age=age
+şu anda person classını tanımladık
+person1=Person() dediğimizzaman first lastname age ver bana diyor.
+person1=Person("Engin","Demiroğ",33)
+artık print(person1.age) print(person1.firstName) print(person1.lastName)
+diyebiliriz.
+Inheritance miras kısmı
+ortak operasyonların 1 kez yazılıp her yerde kullanılması.
+class Worker:
+	def __init__(self,salary):
+		self.salary=salary
+şimdi bu çalışanın Persondaki firstnam lastname age gelsin de istiyoruz
+class Customer:
+    def __init__(self,creditCardNumber):
+        self.creditCardNumber = creditCardNumber
+
+worker da customer da bir Persondır diyoruz
+Şimdi içlerine PErson ekliyoruz inheritance olmasını sağlıyoruz
+class Worker(Person):
+	def __init__(self,salary):
+		self.salary=salary
+class Customer(Person):
+    def __init__(self,creditCardNumber):
+        self.creditCardNumber = creditCardNumber
+haline çeviriyoruz
+ahmet=Worker()
+ahmet. deyince tüm özellikler geldi salary, age, firstname vs
+miras aldı PErson classından.
+
+mehmet=Customer()
+mehmet. deyince creditcardnumber firstname age geldi
+
+kendi modülümüzü yazalım
+modülü bir dosya olarak düşünelim
+bir dosyadan başka birine erişmek gibi düşünebiliriz
+birbiriyle ilgili fonksiyonları classları o dosya içine koyuyoruz
+numpy pandas güzel örneklerdir.
+def topla ve çarp oluşturduk  dosya adına matematikModule.py dedik
+şimdi bu dosyaya başka bir dosyadan erişmeye çalışacağız
+buna ulaşmak için yeni bir dosya oluşturalım moduleTest.py dedik
+
+#import matematikModule    dedik çağırdık modülün tamamını yükledik
+#
+#matematikModule.topla(2,3)   şimdi fonksiyonları çağırdık 
+#matematikModule.carp(2,3)
+
+#import matematikModule as mm   alias verdik rename ettik
+#mm.carp(3,4)
+#print(mm.customer["firstName"])
+
+from matematikModule import topla  sadece toplayı import ediyoruz sadece
+topla(2,4)
+
+from matematikModule import customer
+print(customer["firstName"])
+
+Workshop Hesap Makinesi 
+def topla(sayi1,sayi2):
+    return sayi1 + sayi2
+
+def cikar(sayi1,sayi2):
+    return sayi1 - sayi2
+
+def carp(sayi1,sayi2):
+    return sayi1 * sayi2
+
+def bol(sayi1,sayi2):
+    return sayi1 / sayi2
+
+print("Operasyon:")
+print("1 : Topla")
+print("2 : Çıkar")
+print("3 : Çarp")
+print("4 : Böl")
+
+secenek = input("Operasyon seçiminiz?")
+
+sayi1 = int(input("Birinci sayı?"))
+sayi2 = int(input("İkinci sayı?"))
+
+if secenek == '1':
+    print("Toplam : " +str(topla(sayi1,sayi2)))
+elif secenek == '2':
+    print("Çıkarma : " +str(cikar(sayi1,sayi2)))   
+elif secenek == '3':
+    print("Çarpma : " +str(carp(sayi1,sayi2))) 
+elif secenek == '4':
+    print("Bölme : " +str(bol(sayi1,sayi2)))
+else:
+    print("Geçersiz seçenek")
+
+
+Dosyalarla çalışmak:
+f = open("musteriler.txt")
+f = open("musteriler.txt","r") default readdir
+f = open("musteriler.txt","w") w writetır
+a da appenddir.
+x de oluştur demektir bu dosya varsa kızar ama.
+print(f.read()) tamamını okur
+print(f.read(10)) dersek 10 karakter oku diyoruz
+print(f.readline())  bu da satır satır okur
+for l in f:   her satır için dön diyoruz 
+    print(l)
+
+f.close()   open deyince bellekte açık kalıyor o yüzden kapatmamız gerekli
+
+fileToAppend = open("ogrenciler.txt","w")
+fileToAppend.write("\n")  alt alta eklesin diye yazdık
+fileToAppend.write("Ahmet")
+fileToAppend.close()
+
+silmek istersek
+
+import os
+os.remove("ogrenciler.txt")  dosya silindi
+os ile dosya var mı yok mu kontrol de edilebilir
+import os
+if os.path.exists("ogrenciler.txt"):
+	os.remove("ogrenciler.txt")
+else:
+	print("Dosya yok")
+
+klasörü silmek istersek
+os.rmdir("empty")   empty klasörünü sildik
+
+Recap Demo 4
+ogrenciler = ["Engin","Derin","Salih","Ali","Ayşe"]
+fileToAppend = open("ogrenciler.txt","a")
+
+for ogrenci in ogrenciler:
+    fileToAppend.write(ogrenci)
+    fileToAppend.write("\n")
+    
+fileToAppend.close()
+
+15) Json datasıyla çalışmak bölümü
+jsonplaceholder dedik googlea
+burada user datası var
+https://jsonplaceholder.typicode.com/
+https://jsonplaceholder.typicode.com/users
+import json
+data ='{"firstName":"engin","lastName":"demirog"}'
+y=json.loads(data)  datayı jsona çevirelim
+type(y)  
+print(y["firstName"])
+print(y["lastName"])
+
+customer = {
+        "firstName":"engin",
+        "email":"engindemirog@gmail.com"
+        }
+
+customerJson = json.dumps(customer)   python nesnelerini çevirirken dumps kullanırız
+print(customer)   json formatında görüyoruz
+
+print(json.dumps("Engin"))  json standartlarına çevirdik
+
+şimdi gerçek veri ile çalışalım
+user.jsonı kullanalım
+
+import json
+
+with open("users.json") as users:   with openla açınca kendiliğinden dosya kapanır
+    data = json.load(users)
+    
+    for x in range(6):       
+        print(data[x]["username"])
+        print(data[x]["email"])
+        print(data[x]["address"]["street"])
+        print(data[x]["address"]["geo"]["lat"])
+
+Bölüm  16 Veritabanı
+https://sqlitebrowser.org/
+https://www.sqlitetutorial.net/sqlite-sample-database/
+sqlite sample database indirdik 11 tane tablo var
+DBBrowser kuralım önce
+chinook zip açalım onu kullanacağız db olarak
+veritabanı aç deyip ekliyoruz chinook.db dosyasını
+
+import sqlite3
+
+def selectOperasyonlari():
+    connection = sqlite3.connect("chinook.db")
+    
+    #cursor = connection.execute("""select FirstName,LastName 
+    #                            from customers 
+    #                            where city='Prague' or city='Berlin' 
+    #                            order by FirstName,LastName desc""")
+    
+    #for row in cursor:
+    #    print("First Name = "+row[0])
+    #    print("Last Name = "+row[1])
+    #    print("*********")
+        
+    #cursor = connection.execute("""select city,count(*) from Customers  
+    #                            group by city having count(*)>1 
+    #                            order by count(*) desc""")
+    #for row in cursor:
+    #    print("City = "+row[0])
+    #    print("Count = "+str(row[1]))
+    #    print("*********")
+    
+    cursor = connection.execute("""select FirstName,LastName 
+                                from customers 
+                                where FirstName like '%ja' """)
+    
+    for row in cursor:
+        print("First Name = "+row[0])
+        print("Last Name = "+row[1])
+        print("*********")
+    
+    connection.close()
+
+
+selectOperasyonlari()
+
+def insertCustomer():
+    connection = sqlite3.connect("chinook.db")
+    connection.execute("""insert into customers 
+                       (firstName,lastName,city,email) 
+                       values('Engin','Demiroğ','Ankara',
+                       'engindemirog@gmail.com')""")
+    connection.commit()
+    connection.close()
+    
+#insertCustomer()
+
+def updateCustomer():
+    connection = sqlite3.connect("chinook.db")
+    connection.execute("""update customers set city='İstanbul'
+                       where city='Ankara'""")
+    
+    connection.commit()
+    connection.close()
+    
+#updateCustomer()
+    
+def deleteCustomer():
+    connection = sqlite3.connect("chinook.db")
+    connection.execute("""Delete from customers 
+                       where city='İstanbul'""")
+    
+    connection.commit()
+    connection.close()   
+    
+#deleteCustomer()
+
+
+
+def joinOperasyonlari():
+    connection = sqlite3.connect("chinook.db")
+    cursor = connection.execute("""select albums.Title, 
+                                 artists.Name from artists 
+                                 inner join albums
+                                 on artists.ArtistId = albums.ArtistId""")
+    
+    for row in cursor:
+        print("Title = "+row[0]+" Name = "+row[1])
+    
+    connection.close()
+    
+joinOperasyonlari()  
+
+select ve join operasyonlarında cursor kullanırız diğer
+işlemlerde update, delete insertte cursora gerek yok
+execute ile ilerleriz
+
+Bölüm 17 Hata Yönetimi
+try:
+    sayi = int(input("Sayı giriniz"))
+except ValueError:
+    print("Tip uyuşmazlığı : Lütfen sayı giriniz")
+except ZeroDivisionError:
+    print("Payda sıfır olamaz")
+except:
+    print("Bir hata oluştu")
+    
+print("Bitti")
+
+
+İki tip hataya aynı uyarı çıksın istersek
+except (ValueError,ZeroDivisionError):  şeklinde kullanırız
+
+Recap5
+import sys
+
+liste = [7,'engin',0,3,"6"]
+
+for x in liste:
+    try:
+        print("Sayı: " + str(x))
+        sonuc = 1/int(x)
+        print("Sonuç : " + str(sonuc))
+    except ValueError:
+        print(str(x)+ " bir sayı değil")
+    except ZeroDivisionError:
+        print(str(x)+ " için sıfıra bölme hatası")
+    except:
+        print(str(x) +" hesaplanamadı")
+        print("Sistem diyor ki : " + str(sys.exc_info()[0]))
+    finally:
+        print("İşlemler bitti")
+        
+   
+try:
+    file = open("abc.txt")
+except:
+    print("dosya hatası")
+finally:    try except sonuna konur
+    file.close()
+    print("dosya kapandı")
+
+
+Bölüm 18 Iteratorler
+sehirler = ["Ankara","İstanbul","İzmir","Van"]
+
+iteratorum = iter(sehirler)  tuple set dictionary olabilir
+
+print(next(iteratorum))  sırasıyla hepsini çalıştırıyor
+print(next(iteratorum))
+print(next(iteratorum))
+print(next(iteratorum))
+
+for sehir in sehirler:
+    print(sehir)
+
+Bölüm 19 map filter reduce yapıları
+sayilar = [1,2,3,4,5]
+
+sayilarKareli = list(map(lambda sayi: sayi*sayi,sayilar))
+
+#for sayi in sayilar:
+#    sayilarKareli.append(sayi*sayi)
+    
+sayilarFiltreli = list(filter(lambda sayi : sayi>2,sayilar))
+
+    
+print(sayilarKareli)
+print(sayilarFiltreli)
+
+from functools import reduce  kümülatif işlem yapıp sonuca ulaşmaya çalışıyoruz
+sayilarFaktoriyel = reduce(lambda x,y:x*y,sayilar)
+
+print(sayilarFaktoriyel)
+
+Bölüm 170 Veri Analizi Numpy
+numeric python numpy
+işler diziler üzerinde yürür dizilerde yapamadığımız birçok işlemi
+numpy ile yapabilir hale geliyoruz. scipydaki elemanlar üretmiştir
+import numpy as np
+
+#havaDurumu = [[12,21,31],[6,17,18],[11,12,13]]
+#print(havaDurumu)
+
+a = np.arange(15).reshape(3,5)
+print(a)
+print(type(a))   ndarray oluşturdu listelere benzer ama tam değil
+print("Dimension Count =" +str(a.ndim))   2 boyutlu
+
+b = np.arange(10)
+print(b.shape)   (10,)  10 elemanlı tek boyutlu
+print(b.ndim)   1 verdi 1 boyutlu
+
+Numpy dizileri ile çalışmak
+import numpy as np
+#a = np.arange(1,10)  başlangıç vermek istersek kullanırız
+
+a = np.array([1,3,5,7,9,11])  [] içinde vermezsek sanki 6 tane parametre
+göndermiş gibi oluruz. [] içine yazarsak 1 parametre göndermiş oluruz
+array bir fonksiyon olduğu için her birini parametre gibi algılıyor
+a = a.reshape(2,3)  
+print(a)
+print(a.dtype)   int32 verdi dizideki elemanların veritipini verdi
+1 tane float olsa hepsini float olarak alır
+print(a.ndim) tek boyutlu  reshape sonrası 2 boyutlu olur
+a=a.reshape demezsek üstüne yazmaz 
+
+b = np.array([[1,3],[5,7],[9,11]])   3 satır 2 sütundan oluşuyor
+print(b)
+print(b.ndim)     2 boyutlu
+
+Linspace
+import numpy as np
+a = np.linspace(1,10,5)   1-10 arası 5 tane sayı üretti
+print(a)
+
+from numpy import pi
+x = np.linspace(0,2*pi,100)  0-360 derece aralığını bul diyoruz
+print(x)
+print(np.sin(x))  sinüsünü hesaplarız
+
+temel operasyonlar
+import numpy as np
+
+a = np.array([20,30,40,50])
+b = np.arange(4)
+
+c = a-b
+d = b**3
+e = 10 * np.sin(a)
+print(e<7)
+print(a*b) # elementwise product her bir element seviyesinde çarpım
+print(a@b)    matris çarpımı
+print(a.dot(b))  bu da diğer çarpımı matrisin a@b ile aynı
+
+f = np.ones((2,4))   2 satır 4 sütun 1lerden oluşur
+g = np.zeros((2,4))
+h = np.random.random((2,4))   2*4 array oluştur 0-1 arasında random sayı üretti
+i = np.sum(b) 
+j = np.min(b)
+k = np.max(h)
+print(b.sum())
+l = np.sqrt(b)
+
+indexing
+import numpy as np
+
+sayilar = np.array([0,5,10,15,20,25,30])
+print(sayilar[::-1]) tersten diz demektir.
+
+#print(sayilar[6])
+#print(sayilar[0:3])  0,5,10
+
+sayilar2 = np.array([[0,5,10],[15,20,25]])
+print(sayilar2[:,0:2])   sol taraf satıra karşılık geliyor tüm satırlar
+
+print(sayilar2[-1,:])  en son satırı almak istiyoruz tüm sütunlar
+print(sayilar2[:,-1])  tüm satırlar ama en sondaki sütunları al demektir.
+
+shape manipulation:
+import numpy as np
+
+a = np.floor(10*np.random.random((3,6)))  floor ile 2,7yi 2ye indirir
+
+print(a)
+print(a.shape)   3,6 verir bize
+print(a.ravel()) matrisi düz vektör haline getirir
+a = a.ravel()
+print(a)
+print(a.shape)   (18,) diyor
+
+a = a.reshape(2,9)  farklı boyuta çeker
+print(a)
+print(a.T)   transpoze alıyor
+print(a.reshape(2,-1))   2 satır yap kalanları dağıt diyor
+
+b = a.resize(6,3)
+print(b)
+
+dizi birleştirme stacking işlemi
+import numpy as np
+
+a = np.floor(10* np.random.random((2,3)))
+b = np.floor(10* np.random.random((2,3)))
+print(a)
+print(b)
+
+c = np.vstack((a,b)) iki matrisi birleştirecek sütun sabit
+print(c)
+d = np.hstack((a,b)) satır sayısı sabit kalsın istersek kullanırız
+print(d)
+
+Dizi Referansları - Kopyalama - Görünüm
+import numpy as np
+
+a = np.arange(10)
+print(a)
+
+b = a
+print(b)
+print(a[2])
+print(b[2])
+
+b[0]=100
+print(a)
+print(b)
+
+c = a.copy()
+print(c)
+c[0]=1000
+print(a)
+print(c)
+
+d = a.view()
+print("****")
+print(a)
+print(d)
+d[0]=250
+print(a)
+print(d)
+d.shape = 2,5
+print(a)
+print(d)
+a[0]=123
+print(a)
+print(d)
+
+
+Veri Analizi Pandas Kısmı  Bölüm 171
+Serilerle çalışmak
+import pandas as pd
+import numpy as np
+
+data = np.array(["Engin","Derin","Salih"])
+s = pd.Series(data, index=[1,2,3])
+print(s)
+print(s[1])
+
+data2 = {"matematik":10, "fizik":20, "beden eğitimi":100}
+s2 = pd.Series(data2, index = ["fizik","matematik","beden eğitimi"])
+print(s2)
+
+print(s2[0])
+print(s2["matematik"])
+
+s3 = pd.Series(5,index=[1,2,3,4,5])  5 tane index bastı hepsine 5 değeri atadı
+print(s3)
+
+dataframe ile çalışmak
+import pandas as pd
+
+data = [10,20,30,40,50]
+df = pd.DataFrame(data)   burada kolon da geliyor. 
+print(df)
+
+data2 = [["Engin",33,"Ankara"],["Derin",4,"Ankara"],["Salih",32,"İstanbul"]]
+df2 = pd.DataFrame(data2,columns=["İsim","Yaş","Şehir"],index=[1,2,3])
+print(df2)
+
+data3 = {"İsim":["Engin","Derin","Salih"],
+         "Yaş":[33,4,32],
+         "Şehir":["Ankara","Ankara","İstanbul"]}
+df3 = pd.DataFrame(data3,columns=["İsim","Yaş","Şehir"],index=[1,2,3])
+print(df3["Yaş"])
+#del df3["Şehir"]  kolonu sileriz
+#df3.pop("Şehir")  kolonu sileriz yine del yerine kullanılır
+print(df3)
+
+print(df3.loc[2])  2 indexli kişiyi verir 
+print(df3.iloc[1])  0.sıradaki kişiyi verir
+
+df4 = df3.append(df2)  formatları aynıysa ekleme yaparız
+print(df4)
+print(df4.head())
+print(df4.tail())
+df4.drop(2)
+print(df4)
+
+Recap 1 
+grades.csv dosyasını okuyup inceleyelim
+import pandas as pd
+
+notlar = pd.read_csv("grades.csv")  dosyayı aynı yere attık
+notlar.columns = ["İsim","Soyisim","SSN"
+                  ,"Test1","Test2","Test3","Test4"
+                  ,"Final","Sonuc"]
+print(notlar)  tipi dataframedir.
+print(type(notlar))
+print(notlar.head())
+print(notlar.tail())
+print(notlar["Final"])
+print(notlar.iloc[2]) 2.satırı alıyoruz
+print(notlar[0:10]) 1den 5e kadar satırları getir diyoruz
+
+Indexing and Slicing
+import pandas as pd
+
+notlar = pd.read_csv("grades.csv")
+notlar.columns = ["İsim","Soyisim","SSN"
+                  ,"Test1","Test2","Test3","Test4"
+                  ,"Final","Sonuc"]
+print(notlar)
+print(notlar.loc[:,"İsim"])  tüm satırlar isim sütunu
+print(notlar.loc[:5,"İsim"])  0dan 5e kadar alır 5 dahildir pandasa özel
+print(notlar.loc[:5,"İsim":"Test4"]) isimden test4e kadar kolonları al
+print(notlar.loc[:5,["İsim","Soyisim","Final"]])  virgül koymak için [] içine yazarız
+print(notlar.loc[:5,:"Test2"])  test2ye kadar tüm kolonları alır
+print(notlar.loc[::-1,:"İsim"])  tersten getir diyoruz 
+
+Filtreleme kısmı
+import pandas as pd
+
+films = pd.read_csv("imdb_1000.csv") en yüksek oya sahip 1000 film
+
+print(films)
+print(films.columns)
+print(films.head())
+print(films.tail())
+print(films['title'].head())
+print(films.title.head())
+print(films[['title','star_rating']].head())
+print(films[:9][['title','star_rating']].head())
+print(films[
+        (films['star_rating']>=8.5)&(films['star_rating']<=9.0)
+        ][['title','star_rating']])
+iki kolon olduğu için [] içine aldık kolonları.
+Filtreyi()&() içinde yazdık onu da [] içine aldık
+print(films[
+        (films['star_rating']>=9.0)|(films['star_rating']<=7.4)
+        ][['title','star_rating']])
+
+Query yazalım şimdi
+print(films.query('star_rating>=9.0 & star_rating<=9.2')
+                            [['title','star_rating']])
+
+
+GroupBy 
+
+import pandas as pd
+
+films = pd.read_csv("imdb_1000.csv")
+
+print(films.columns)
+print(films.head())
+print(films.star_rating.mean())
+print(films.groupby('genre').star_rating.mean())
+
+Drop ve Axis kullanımı
+import pandas as pd
+
+films = pd.read_csv("imdb_1000.csv")
+print(films.columns)
+
+films = films.drop("content_rating",axis=1)  kolonu uçur diyoruz
+films = films.drop("actors_list",axis=1)
+axis=0 dersek satır siler
+films = films.drop(2,axis=0)  ikinci satırı sil diyoruz
+
+rowsToDrop = [0,1,3,4,6,8,9,10]
+films = films.drop(rowsToDrop,axis=0) 8 satırı sil diyoruz
+print(films.mean(axis=0))
+
+Kayıp Veriler missing data ile çalışma
+ufo.csv kullanıyoruz
+
+import pandas as pd
+
+url = "http://bit.ly/uforeports"
+
+data = pd.read_csv(url)
+print(data[["City",
+            "Colors Reported",
+            "Shape Reported",
+            "State",
+            "Time"]].head())
+print(data.columns)
+print(data.isnull().head(100))  null ise True der.
+print(data.notnull().head(100))
+print(data.isnull().sum())
+
+print(data.shape)
+#data = data.dropna(how = "all")   tüm null olanları siler any dersek herhangi bir kolon null ise siler
+#data = data.dropna(
+#        subset=['City','Colors Reported'],how="any")
+istediğimiz kolonları subset ile belirtiyoruz
+
+veri yoksa dolduralım dersek fillna kullanırız 
+data['Shape Reported'].fillna(value='Belirsiz',inplace=True)
+print(data['Shape Reported'].value_counts(dropna=False))
+
+print(data.shape)
+
+String fonksiyonlarla çalışmak
+order.tsv ile çalışıyoruz
+
+print('engin demirog'.upper())
+
+import pandas as pd
+
+orders = pd.read_table('orders.tsv')
+
+print(orders.head())
+print(orders.columns)
+orders.item_name = orders.item_name.str.upper()
+print(orders.item_name)
+print(orders.item_name.str.contains('Chicken'.upper()))
+orders.choice_description = orders.choice_description.str.replace('[','').str.replace(']','')
+
+Join ve Merge İşlemleri
+# -*- coding: utf-8 -*-
+import pandas as pd
+
+data1 = {
+            'id':[1,2,3,4],
+            'ad':["Engin","Derin","Salih","Mehmet"],
+            'soyad':["Demiroğ","Demiroğ","Demiroğ","Kaya"]
+        }
+
+data2 = {
+            'id':[1,3,4,7],
+            'ad':["Ayşe","Ali","Ahmet","Cemal"],
+            'soyad':["Demiroğ","Demiroğ","Demiroğ","Kaya"]
+        }
+
+data1Df=pd.DataFrame(data1)
+data2Df=pd.DataFrame(data2)
+
+print(data1Df)
+print(data2Df)
+
+print(pd.merge(data1Df,data2Df,on='id',how='inner'))
+print(pd.merge(data1Df,data2Df,on='id',how='left'))
+print(pd.merge(data1Df,data2Df,on='id',how='right'))
+
+print(pd.concat([data1Df,data2Df],axis=1))
+
+Makine Öğrenmesi Bölümü
+hw_25000.csv kullanacağız
+# -*- coding: utf-8 -*-
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression kütüphane import class
+from sklearn.metrics import r2_score
+data = pd.read_csv("hw_25000.csv")
+
+boy = data.Height.values.reshape(-1,1)  (25000,1) yapmak için reshare ettik yoksa (25000,) şeklinde görünüyordu
+kilo = data.Weight.values.reshape(-1,1)
+
+regression = LinearRegression()  instance oluşturduk=class
+regression.fit(boy,kilo)
+
+print(regression.predict(60))
+print(regression.predict(62))
+print(regression.predict(64))
+print(regression.predict(66))
+print(regression.predict(68))
+print(regression.predict(70))
+
+print(data.columns)
+
+plt.scatter(data.Height,data.Weight)
+x = np.arange(min(data.Height),max(data.Height)).reshape(-1,1)
+plt.plot(x,regression.predict(x),color="red")
+plt.xlabel("Boy")
+plt.ylabel("Kilo")
+plt.title("Simple Linear Regression Model")
+plt.show()
+
+print(r2_score(kilo,regression.predict(boy)))
+      r2_score(y_true, y_pred) olması lazım
+
+Multiple Linear Regresyon:
+insurance.csv kullanıyoruz
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+
+data = pd.read_csv("insurance.csv")
+print(data.columns)
+
+## y ekseni
+expenses = data.expenses.values.reshape(-1,1) scikit formatı için yaptık reshape.
+## x ekseni
+ageBmis = data.iloc[:,[0,2]].values
+
+regression = LinearRegression()
+regression.fit(ageBmis,expenses)
+print(regression.predict(np.array([[30,20],[30,21],[20,22],[20,23],[20,24]])))
+
+data.describe() ile data hakkında hızlıca bilgi elde edebiliriz
+
+Polynomial Regression
+positions datasını kullanıyoruz
+
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+from sklearn.preprocessing import PolynomialFeatures
+
+data = pd.read_csv("positions.csv")
+print(data.columns)
+
+level = data.iloc[:,1].values.reshape(-1,1)
+salary = data.iloc[:,2].values.reshape(-1,1)
+
+regression = LinearRegression()
+regression.fit(level,salary)
+
+tahmin = regression.predict(8.3)
+
+
+regressionPoly = PolynomialFeatures(degree = 4)
+levelPoly = regressionPoly.fit_transform(level)
+regression2 = LinearRegression()
+regression2.fit(levelPoly,salary)
+
+tahmin2 = regression2.predict(regressionPoly.fit_transform(8.3))
+
+
+plt.scatter(level,salary,color="red")
+plt.plot(level,regression.predict(level),color="blue")
+plt.plot(level,regression2.predict(levelPoly))
+plt.show()
+
+DecisionTree:
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+from sklearn.tree import DecisionTreeRegressor
+
+data = pd.read_csv("positions.csv")
+
+level = data.iloc[:,1].values.reshape(-1,1)
+salary = data.iloc[:,2].values.reshape(-1,1)
+
+regression = DecisionTreeRegressor()
+regression.fit(level,salary)
+print(regression.predict(8.9))
+
+plt.scatter(level,salary,color="red")
+x = np.arange(min(level),max(level),0.01).reshape(-1, 1)
+plt.plot(x,regression.predict(x),color="orange")
+plt.xlabel("Level")
+plt.ylabel("Salary")
+plt.title("Decision Tree Model")
+plt.show()
+
+
+Random Forest:
+positions dosyasını kullanacağız
+çevrenizde ev almak istiyorsunuz sorduğu sorular farklı olabilir
+oda sayısı, ulaşım, vs. 
+1000 tane decisiontree oluşturabiliriz.
+
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.ensemble import RandomForestRegressor
+
+data = pd.read_csv("positions.csv")
+level = data.iloc[:,1].values.reshape(-1,1)
+salary = data.iloc[:,2].values  1 boyutlu istediği için reshape kaldırdık
+
+regression = RandomForestRegressor(n_estimators=10, random_state=2)
+10 tane decisiontree oluştur demek
+regression.fit(level,salary)
+
+print(regression.predict(8.3))
+
+
+Python ile WebProgramlama Bölümü
+Django ile web programlayalım
+anaconda navigatordan django ekli değilse ekliyoruz
+homea gelip VSCode launch deriz
+
+VScode içinde view-->integrated terminal deriz
+python -m django --version deriz kontrol ederiz
+3.1.1 verdi
+python altında djangoprojects oluşturdum
+editorde o adrese gidelim
+C:\Users\Bootcamp\Desktop\Udemy_Calismalari\ProgramlamaDilleri\Programlama\EnginDemirog\100SaatArananProgramci\python\djangoprojects
+django-admin startproject bookstore    deriz
+sonra file open folder deyip bookstore birinci klasörü gösteririz
+
+manage.py komut satırı uygulamasıdır.
+settings uygulama ile ilgili ayarları verir
+urls.py ise uygulamadaki yolları tanımlamamızı sağlar.
+
+terminalde bookstore altındayız
+şimdi uygulamayı yayına alalım
+python manage.py runserver deyince uygulamayı yayına alacak bir
+test ortamıyla karşılaşıyoruz
+127.0.0.1:8000 yayına girdi diyor
+evet yayında
+
+yeni uygulama ekleyelim
+ikinci bir terminal açalım
+python manage.py startapp books diyoruz
+burada models.py var db ile entegrasyon sağlar
+views.py ise kullanıcıya gösterilecek kuralları yazarız
+views içine girelim
+enter bir requesttir
+from django.http import HttpResponse ekleriz
+
+def index(request):
+	return HttpResponse("Anasayfa")
+deyip kaydedelim
+şimdi booksa gelir new file  urls.py diyoruz
+içine şu kodları giriyoruz
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('',views.index,name='index')    
+]
+ana sayfaya istek gelirse viewstaki indexi aç diyoruz
+
+şimdi bookstoredaki urls.pyye gelir
+bookstaki urlleri de yükle diyoruz
+books şeklinde istek gelirse include et diyoruz
+kodlar şu şekilde
+from django.contrib import admin
+from django.urls import path,include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('books/',include('books.urls'))
+]
+
+şimdi terminalden tekrar çalıştıralım
+python manage.py runserver
+
+şimdi tekrar 8000 gidince ya admin ya da booksa gideceksin diyor
+http://127.0.0.1:8000/books/  deyince Anasayfa yazdı
+
+bookstore kısmında bütün urlleri yönetiyoruz ona dikkat edelim
+
+Veritabanının oluşturulması
+Projeyi açınca altta sqlite oluşturuyor kendiliğinden
+bookstoredaki settings.pyye bakalım
+timezone gelelim
+Timezone Europe/Istanbul dedik
+Language de tr-TR dedik
+bu değişikliklerin yansıması için şunu yapalım
+python manage.py migrate
+şimdi dbde tablolarımız oluştu.
+
+sqlite browserı açtık db aç deyip
+django project bookstoredaki sqlite3 seçeriz
+artık kendi tablolarımızı da oluşturmamız lazım
+şimdi books altına geliriz models.py açarız
+model oluşturalım onun için class yani obje oluşturuyoruz önce.
+kitaplar ve yazarları vardır bir kitapevinde
+
+from django.db import models
+
+# Create your models here.
+class Author(models.Model):
+    name = models.CharField(max_length=50)
+    created=models.DateTimeField('date created')
+şimdi kaydettik models.py dosyasını.
+
+artık bunu dbye aktaralım
+önce settings.py içinde installed_apps ekleme yapalım
+books.apps.BooksConfig ekleriz
+ 
+# Application definition
+
+INSTALLED_APPS = [
+    'books.apps.BooksConfig',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+]
+
+
+
+şimdi python manage.py makemigrations books diyelim terminalde
+
+dbye gönderelim
+python manage.py sqlmigrate books 0001 deriz
+artık dbye gönderelim
+python manage.py migrate diyoruz
+şimdi books_author dbye geldi
+
+İlişkisel model oluşturalım
+kitaplarla ilgili model oluşturalım
+models.py ye gidelim alttaki kodu ekleyelim
+class Book(models.Model):
+    name =models.CharField(max_length=50)
+    created=models.DateTimeField('date created')
+    author=models.ForeignKey(Author,on_delete=models.CASCADE)
+
+burada on_deleteteki parametre yazar silinirse kitaplarını da sil demektir
+ şimdi sırayla aynı kodları girelim
+python manage.py makemigrations books
+python manage.py sqlmigrate books 0002  bununla dbye giden sorguyu görürüz
+python manage.py migrate
+
+dbye yazıldı
+
+modelimizde güncelleme yapmak
+book classına fiyat eklemesi yapalım
+book bu hale geldi
+class Book(models.Model):
+    name =models.CharField(max_length=50)
+    created=models.DateTimeField('date created')
+    author=models.ForeignKey(Author,on_delete=models.CASCADE)
+    price = models.DecimalField(decimal_places=2,max_digits=4,null=True)
+
+python manage.py makemigrations books
+python manage.py sqlmigrate books 0003  price ekleyince 3 oldu
+python manage.py migrate
+
+Şimdi CRUD işlemleri yapalım
+bunu yapmak için terminalde python manage.py shell deriz
+ln[1] içine şunları yazarız
+from books.models import Author,Book
+
+Author.objects.all()  sonuç boş geldi henüz datayok
+from django.utils import timezone deriz
+author=Author(name="Victor Hugo",created=timezone.now())
+author.save()  ile dbye kaydediyoruz
+author.id dersek idsi author.name ile adına erişebiliriz
+author.name="Yaşar Kemal" deyip author.save() dersek
+dbye yansır yoksa sadece çalışma ortamında görürüz
+terminalde yani
+Author.objects.all()  dersek 1 kayıt gelir
+
+author object olarak geliyor direk yazarın ismini istersek 
+Author classına şunu ekleriz
+class Author(models.Model):
+    def __str__(self):
+        return self.name
+        
+    name = models.CharField(max_length=50)
+    created=models.DateTimeField('date created')
+
+şimdi shelli tekrar açarsak görebiliriz
+python manage.py shell
+from books.models import Author,Book  önce bunu çekelim
+Author.objects.all()  deyince Victor Hugo gelir
+aynı değişikliği book için de yapalım
+
+class Book(models.Model):
+    def __str__(self):
+        return self.name
+    name =models.CharField(max_length=50)
+    created=models.DateTimeField('date created')
+    author=models.ForeignKey(Author,on_delete=models.CASCADE)
+    price = models.DecimalField(decimal_places=2,max_digits=4,null=True)
+
+shelli tekrar başlatalım
+filtreleme yapalım
+from books.models import Author,Book 
+Author.objects.all()
+from django.utils import timezone
+author=Author(name="Yaşar Kemal",created=timezone.now())
+author.save() ile gönderdik
+author=Author(name="Orhan Kemal",created=timezone.now())
+author.save() 
+
+şimdi filtreleme yapalım
+Author.objects.filter(id=1)  olanlar gelsin
+Author.objects.filter(name="Yaşar Kemal")
+Author.objects.filter(name__startswith="Yaşar")
+Author.objects.filter(name__endswith="Kemal")
+Author.objects.filter(created__year=2022)
+Author.objects.filter(created__year=timezone.now().year)
+Author.objects.filter(id=1) yerine pk=1 de diyebiliriz
+
+birden fazla kural yazmak istersek virgül ekleriz
+Author.objects.filter(created__year=timezone.now().year,name__endswith="Kemal")
+
+Sorgulama yapalım
+yazara kitap ekleyelim
+author = Author.objects.get(id=1)
+author deyince Victor Hugo döndü
+author.book_set.all()  henüz kitap yok
+book = author.book_set.create(name="Sefiller",created=timezone.now(),price=20)
+eklendi sefiller
+book = author.book_set.create(name="Notre Dame'ın Kamburu",created=timezone.now(),price=20)
+book eklendi
+author.book_set.all()   iki kitap da geldi
+author.book_set.filter(id=1)  sefiller geldi
+silmek istersek peki
+book.delete()  notredame kamburu silindi
+yazarı sil dersek kitap da silinir
+author.delete()
+
+View ve Url ile çalışmak:
+books içindeki views.pyye gidelim
+authors books ekleyelim
+yazara ait detayları girelim
+# Create your views here.
+def index(request):
+    return HttpResponse("Anasayfa")
+def authors(request):
+    return HttpResponse("Yazarlar")
+def books(request):
+    return HttpResponse("Kitaplar")
+def authorDetails(request,authorId):
+    return HttpResponse("Yazar detayı :"+str(authorId))
+haline geldi views.py 
+
+şimdi de urls.py dosyasına gidelim
+diğer sayfalar için de görevler oluşturalım
+authordetails için parametre almamız gerekiyor o yüzden
+onu da ekliyoruz authorId
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('',views.index,name='index'), 
+    path('books',views.books,name='books'),
+    path('authors',views.authors,name='authors'),
+    path('authordetails/<int:authorId>',views.authorDetails,name='authordetails')   
+]
+
+url configuration yapınca uygulamayı stop start ederiz
+python manage.py runserver
+
+http://127.0.0.1:8000/books/books
+http://127.0.0.1:8000/books/authordetails/2
+şeklinde sayfamız çalıştı
+
+Admin paneliyle çalışalım biraz
+http://127.0.0.1:8000/admin deriz
+burası bize yönetim paneli sağlar
+şimdi kullanıcı adı ve parola oluşturalım
+şimdi ikinci terminalde şunu çalıştırıp kullanıcı ekleyelim
+python manage.py createsuperuser
+sonra admin dedik şifre 123456 dedik
+
+şimdi modelde oluşturduklarımızı ekleyelim
+books altında admin.py var
+author ve book isimli 2 modelimiz vardı
+# Register your models here.
+from .models import Author
+from .models import Book
+
+admin.site.register(Author)
+admin.site.register(Book)
+
+şeklinde ekledik
+artık Authors ve Book 127.0.0.1e geldi
++ ile Victor Hugo ekliyoruz authors kısmına
+kaydet ve başka birini ekle diyoruz
+
+Template ile çalışmak
+books klasörü için templates adlı klasör oluşturalım
+bunun da içine authors.html ekledik
+şimdi views.py içine yeni birşeyler ekleyelim  ki html ile
+şablon değişikliği yapabilelim
+from django.shortcuts import render
+from django.http import HttpResponse
+from django.template import loader
+loader ekledik
+bir de authors def  içine templates göstermek için ekleme yapalım
+views bu hale geldi
+from cProfile import label
+from django.shortcuts import render
+from django.http import HttpResponse
+from django.template import loader
+
+# Create your views here.
+def index(request):
+    return HttpResponse("Anasayfa")
+def authors(request):
+    template=loader.get_template('authors.html')
+    context={}
+    return HttpResponse(template.render(context,request))
+def books(request):
+    return HttpResponse("Kitaplar")
+def authorDetails(request,authorId):
+    return HttpResponse("Yazar detayı :"+str(authorId))
+
+authors.html içi de bu şekilde
+<b>Yazarlar listelenecek</b>
+http://127.0.0.1:8000/books/authors  sayfasında  bu yazı yazar
+
+şimdi yazı çıkmasın da yazarlar görünsün diye
+context içini dolduralım
+from cProfile import label
+from django.shortcuts import render
+from django.http import HttpResponse
+from django.template import loader
+from .models import Author
+
+# Create your views here.
+def index(request):
+    return HttpResponse("Anasayfa")
+def authors(request):
+    template=loader.get_template('authors.html')
+    context={
+        'authors_list' :Author.objects.all()
+    }
+    return HttpResponse(template.render(context,request))
+def books(request):
+    return HttpResponse("Kitaplar")
+def authorDetails(request,authorId):
+    return HttpResponse("Yazar detayı :"+str(authorId))
+
+
+authors.html şu hale döndü
+<b>Yazarlar</b>
+<ul>
+    {% for author in authors_list %}
+        <li>{{author.name}}</li>
+    {% endfor %}
+</ul>
+
+
+render fonksiyonu ile çalışmak:
+http request yerine render ekledik şimdi
+
+bu hale geldi views.py
+from cProfile import label
+from django.shortcuts import render
+from django.http import HttpResponse
+from django.template import loader
+from .models import Author
+
+# Create your views here.
+def index(request):
+    return HttpResponse("Anasayfa")
+def authors(request):
+ #   template=loader.get_template('authors.html') render yapınca ihtiyaç kalmadı
+    context={
+        'authors_list' :Author.objects.all()
+    }
+ # değişti      return HttpResponse(template.render(context,request))
+    return render(request,'authors.html',context)
+def books(request):
+    return HttpResponse("Kitaplar")
+def authorDetails(request,authorId):
+    return HttpResponse("Yazar detayı :"+str(authorId))
+
+Parametreli şablonlarla çalışmak:
+bir de yazarlarla ilgili detaylarlar çalışalım
+authorDetail.html açtık
+{{author_detail.name}}  yazdık
+
+views.py şu şekilde oldu
+from cProfile import label
+from django.shortcuts import render
+from django.http import HttpResponse
+from django.template import loader
+from .models import Author
+
+# Create your views here.
+def index(request):
+    return HttpResponse("Anasayfa")
+def authors(request):
+ #   template=loader.get_template('authors.html') render yapınca ihtiyaç kalmadı
+    context={
+        'authors_list' :Author.objects.all()
+    }
+ # değişti      return HttpResponse(template.render(context,request))
+    return render(request,'authors.html',context)
+def books(request):
+    return HttpResponse("Kitaplar")
+def authorDetails(request,authorId):
+    context={
+        'author_detail' :Author.objects.get(pk=authorId)
+    }
+#    return HttpResponse("Yazar detayı :"+str(authorId))
+    return render(request,'authorDetail.html',context)
+
+
+http://127.0.0.1:8000/books/authordetails/2
+
+http://127.0.0.1:8000/books/authordetails/6
+doesnotexist gelirse ne yaparıza bakalım şimdi
+
+onun için authorDetails içine try catch ekledik
+
+from django.shortcuts import render
+from django.http import Http404, HttpResponse
+from django.template import loader
+from .models import Author
+
+# Create your views here.
+def index(request):
+    return HttpResponse("Anasayfa")
+def authors(request):
+ #   template=loader.get_template('authors.html') render yapınca ihtiyaç kalmadı
+    context={
+        'authors_list' :Author.objects.all()
+    }
+ # değişti      return HttpResponse(template.render(context,request))
+    return render(request,'authors.html',context)
+def books(request):
+    return HttpResponse("Kitaplar")
+def authorDetails(request,authorId):
+    try:
+        context={
+            'author_detail' :Author.objects.get(pk=authorId)
+        }
+    except Author.DoesNotExist:
+        raise Http404("Yazar bulunamadı")
+#    return HttpResponse("Yazar detayı :"+str(authorId))
+    return render(request,'authorDetail.html',context)
+
+Linklerle çalışmak:
+http://127.0.0.1:8000/books/authors sayfasında
+yazarın üstüne tıkladığında detaya gitsin istersek
+
+authors.htmle gidelim
+<b>Yazarlar</b>
+<ul>
+    {% for author in authors_list %}
+       <li> <a href="/books/authordetails/{{author.id}}">{{author.name}}</a></li>
+    {% endfor %}
+</ul>
+
+haline çevirdik linkler geldi artık
+
+Bootstrap4 ile çalışmak:
+Görsellik için kullanılır
+CSS frameworküdür
+https://getbootstrap.com/
+
+süslemek için kullanırız html içine ekleriz kodları
+components sayfasında güzel örnekler var.
+https://getbootstrap.com/docs/5.2/customize/components/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
