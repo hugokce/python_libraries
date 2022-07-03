@@ -1337,7 +1337,7 @@ burası bize yönetim paneli sağlar
 şimdi kullanıcı adı ve parola oluşturalım
 şimdi ikinci terminalde şunu çalıştırıp kullanıcı ekleyelim
 python manage.py createsuperuser
-sonra admin dedik şifre 123456 dedik
+Sonra kullanıcı adı sifre sorar
 
 şimdi modelde oluşturduklarımızı ekleyelim
 books altında admin.py var
