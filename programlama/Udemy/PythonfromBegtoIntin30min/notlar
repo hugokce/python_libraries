@@ -369,7 +369,7 @@ file.read()  --> ' first file'  verdi
 
 ------------------------------------------------
 
-file = open('C:/Users/Selma/Desktop/UDEMY_EGITIMLERI/Python_from_Beginner_to_Intermediate_in_30_min/test.txt','r')
+file = open('C:/Users/Desktop/test.txt','r')
 file.read() --> 'this is my first file'
 file.readline() -->  ''
 file.seek(0)  -->  0
@@ -379,9 +379,7 @@ third line ve fourth line ekledik.
 
 file.close()
 
-file = open('C:/Users/Selma/Desktop/UDEMY_EGITIMLERI/
-Python_from_Beginner_to_Intermediate_in_30_min/
-test.txt','r')
+file = open('C:/Users/Desktop/test.txt','r')
 
 file.readline()  -->  'this is my first file\n'
 file.seek(0) --> 0
@@ -398,9 +396,7 @@ listdata  --> ['this is my first file\n',
 
 listdata[2] = "third line edited"
 file.close()
-file = open('C:/Users/Selma/Desktop/UDEMY_EGITIMLERI/
-Python_from_Beginner_to_Intermediate_in_30_min/
-test.txt','w') 
+file = open('C:/Users/test.txt','w') 
 
 file.writelines(listdata)
 listdata[2]  --> 'third line edited'  verdi
