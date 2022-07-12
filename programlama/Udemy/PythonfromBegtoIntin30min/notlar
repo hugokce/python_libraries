@@ -354,15 +354,11 @@ example.var3  --> 'i am class3'  verir
 
 --------------------------------------------
 
-file = open('C:/Users/Selma/Desktop/UDEMY_EGITIMLERI/
-Python_from_Beginner_to_Intermediate_in_30_min/
-test.txt','w')
+file = open('C:/Users/Desktop/test.txt','w')
 
 file.write("this is my first file")  --> 21  verdi
 file.close()
-file = open('C:/Users/Selma/Desktop/UDEMY_EGITIMLERI/
-Python_from_Beginner_to_Intermediate_in_30_min/
-test.txt','r')
+file = open('C:/Users/Desktop/test.txt','r')
 file.read(10)  --> 'this is my'  verdi
 
 file.read()  --> ' first file'  verdi
