@@ -1,0 +1,111 @@
+Egitim Linki
+https://www.udemy.com/course/pythonforbeginnersintro/learn/lecture/2493870?start=0#overview
+
+toplu değer atama
+
+sarah,bob,mike = 16,21,17
+
+sarah=bob=mike=17
+
+name,age = "Avi",15
+
+Arithmetic operatorler
+
+sentence[:-2] deyince sondaki 2 karakter hariç tümünü alır
+
+name = "Jake"
+sent = "%s is 15 years old"
+sent%name  --> Jake is 15 years old
+
+sent%('Avi')
+Avi is 15 years old
+
+sent = "%s %s is the President"
+sent%('Barack','Obama')
+Barack Obama is the President
+
+sent = "%s is %d years old"
+sent%('Obama',50)
+Obama is 50 years old
+
+del shoplist[1] dersek 2.değeri sileriz
+
+help(sent.splitlines)  yardım alırken help kullanabiliriz
+
+sent = 'print("Hi")'
+eval(sent)  -->  Hi 
+exec(sent)  -->  Hi verir
+
+class Person:
+    def getName(self):
+        print("Avi")
+    def getAge(self):
+        print("16")
+
+p = Person()
+p.getName()  --> Avi
+p.getAge()   --> 16
+
+
+class Person:
+    def __init__(self,name,age):
+        self.name = name
+        self.age = age
+    def getName(self):
+        print("Your name is "+self.name)
+    def getAge(self):
+        print("Your age is "+self.age)
+
+p1 = Person("Bob","22")
+
+Inheritance:
+
+class Parent:
+    def __init__(self):
+        print("This is the parent class")
+
+    def parentFunc(self):
+        print("This is parent func")
+
+p=Parent()
+p.parentFunc()
+
+class Child(Parent):
+    def __init__(self):
+        print("This is the child class")
+
+    def childFunc(self):
+        print("This is child func")
+
+c=Child()
+c.childFunc()
+c.parentFunc()
+
+
+class Parent:
+    def __init__(self):
+        pass
+
+    def test(self):
+        print("parent")
+
+p=Parent()
+p.test()
+
+class Child(Parent):
+    def __init__(self):
+        pass
+
+    def test(self):
+        print("child")
+
+c=Child()
+c.test()
+
+
+
+ --------------------------------------------------------------------------------------------------------------------------
+ 
+ 
+ 
+ 
