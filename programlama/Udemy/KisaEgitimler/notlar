@@ -104,8 +104,370 @@ c.test()
 
 
 
- --------------------------------------------------------------------------------------------------------------------------
+//____________________________________________________________________________________________________________________________________________________//
+ Eğitim Linki
+ https://www.udemy.com/course/python-3-bootcamp-for-beginners-learn-python-quickly/learn/practice/1049178?start=summary#overview
+ 
+ The code for quadratic equation
+
+import sys
+print ("a value")
+a = int(sys.stdin.readline())
+print ("b value")
+b = int(sys.stdin.readline())
+print ("c value")
+c = int(sys.stdin.readline())
+nb = b * -1
+btwo = b ** 2
+fourac = 4 * a * c 
+twoa = 2 * a
+squarerootoperation = btwo - fourac
+squareroot = squarerootoperation ** 0.5
+topplus = nb + squareroot
+topminus = nb - squareroot
+x1 = topplus/twoa
+x2 = topminus/twoa
+print (x1)
+print (x2)
+
+__________________________________________________
+
+import sys # gets the sys file
+print ("a value")
+a = int(sys.stdin.readline()) #the a variable
+print ("b value")
+b = int(sys.stdin.readline()) # the b variable
+print ("c value")
+c = int(sys.stdin.readline())  #the c variable
+nb = b * -1 .    #-b
+btwo = b ** 2 .    #b^2
+fourac = 4 * a * c #4ac
+twoa = 2 * a #2a
+squarerootoperation = btwo - fourac #b^2-4ac
+squareroot = squarerootoperation ** 0.5 #squareroot of b^2 - 4ac
+topplus = nb + squareroot #-b + the whole square root
+topminus = nb - squareroot  #-b - the whole square root
+x1 = topplus/twoa #the top divided by bottom
+x2 = topminus/twoa
+print (x1)#prints the code
+print (x2)
+
+//____________________________________________________________________________________________________________________________________________________//
+Eğitim Linki
+https://www.udemy.com/course/free-python/learn/lecture/5857162?start=0#overview
+
+Mac için
+install brew
+brew install python
+versiyonları kontrol ettik
+python --version
+python3 --version
+
+sudo apt-get install python3
+
+fedora varsa
+sudo yum install python3
+sudo pacman -S python3
+
+Windows kurulumu esnasında
+Python kurulumu esnasında Add Python 3.6 to PATH seçtik
+
+pip install requests
+
+python -m pip install requests
+
+PyCharm özelliklerini görüyoruz
+
+Stringlerden
+"Don't do that"  kesme işareti geçti
+'She said "I want this"'
+'She said "Don't put that there"'   bu patlar ikinci kesme stringi bitirir
+Bu daha doğru 'She said "Don\'t do that"'
+"This costs "+str(6)+" dollars"
+
+"Hello:Nick".split(":")
+"Hello:Nick:World".split(":")
+"My name is "+"Hello:Nick:World".split(":")[1]
+--------------------------------------------------------
+13 Dictionaries
+{"name":"Nick","age":27,"hobby":"code"}
+{"name":"Nick","age":27,"hobby":"code"}['name']  --> Nick verecek
+
+greeting = "Hello World"
+greeting = greeting.split(" ")[0]  
+print(greeting)  --> Hello sonucu döndürür
+----------------------------------------------------------
+builtin function
+sorted([16,3,8,6,9,133,435,21,823,45])
+
+sorted(["B","R","A","N","C","7","8.13","d","f","5"])
+sıralanmış hali 5,7,8.13,A,B,C,N,R,d,f   önce sayı sonra upper sonra lower
+-----------------------------------------------------------------
+def my_function():
+    print("This is my function")
+    print("A second string")
+
+my_function()
+------------------------------------------------------------------
+Dinamik yapalım fonksiyonu:
+
+def my_function(str1,str2):
+    print(str1)
+    print(str2)
+
+my_function("This is argument 1","This is the second argument which is also a string.")
+
+my_function("Stringy","Hello World")
+
+-------------------------------------------------------------------
+def print_something(name,age)
+    print("My name is "+name,+" and my age is "+str(age))
+
+print_something("Nick",27)
+
+
+def print_something(name,age)
+    print("My name is ",name," and my age is ",age)
+
+print_something("Nick",27)
+
+
+Default değer verelim
+
+def print_something(name="Someone",age="Unknown")
+    print("My name is ",name," and my age is ",age)
+
+print_something()
+
+---------------------------------------------------------------------
+Key Argument
+
+def print_something(name="Someone",age="Unknown")
+    print("My name is ",name," and my age is ",age)
+
+print_something(27) dersek my name is 27 alır Ama
+print_something(None,27) dersek my name is None and my age is 27 alır
+ya da 
+print_something(age=27) denilebilir o zaman
+my name is Someone and my age is 27 gelir
+yerleri değişebilir
+print_something(age= 27,name="Nick")
+--------------------------------------------------------------------------
+Infinite Arguments:
+
+def print_people(*people):
+    for person in people:
+        print("This person is ",person)
+        
+print_people("Nick","Dan","Jack","King","Smiley")
+Alt alta hepsini yazdırır.
+-----------------------------------------------------------------------
+Return Values:
+
+def do_math(num1,num2):
+    return num1+num2
+
+do_math(5,7) --> döndürmez birşey
+
+math1=do_math(5,7)
+math2=do_math(11,34)  yine deger dondurmez o zaman şunu yaparız
+print("First sum is ",math1," and the second sum is ",math2)
+--------------------------------------------------------------------------
+if-else:
+
+check = False
+if check ==False:
+    print("It is False")
+elif check=="Hamburger":
+    print("Yummm,hamburgers")
+elif check =="Yo":
+    print("Hello")
+else:
+    print("It is actually equal to True")
+----------------------------------------------------------------------------
+Loops:
+
+numbers = [1,2,3,4,5]
+
+for item in numbers:
+    print(item)
+
+numbers = ["Nick","Someone","Another Person"]
+
+for item in numbers:
+    print(item)
+
+
+numbers = ["Nick","Someone","Another Person"]
+
+for item in numbers:
+    print("This person name is ",item)
+
+
+While
+
+run = True
+current = 1
+
+while run:
+    if current == 100:
+        run = False
+    else:
+        print(current)
+        current +=1
+
+----------------------------------------------------------------------------
+Modules:
+
+import re
+string = "' I AM NOT YELLING', she said. Though we knew it to not be true."
+
+new = re.sub('[A-Z]','',string)  böyle olunca uppercase olanları boşluk yaptı
+
+new = re.sub('[a-z]','',string)  böyle olunca lowercase olanları boşluk yaptı
+
+new = re.sub('[.,\']','',string)  böyle olunca kesme, nokta ve virgülü boşluk yaptı
+
+new = re.sub('[.,\'a-z]','',string)  böyle olunca upper caseler kaldı diğerlerini boşluk yaptı
+
+new = re.sub('[.,\'a-zA-Z]','',string)  böyle olunca her karakteri boşluk yaptı
+
+new = re.sub('[.,\'A-Z]','',string)  böyle olunca uppercaseleri boşluk yaptı
+
+new = re.sub('[.,\'A-Z+" "]','',string)  böyle olunca uppercaseleri kaldırıp kelimeleri boşluksuz yazdı
+
+string = string + "6 298 - 345"
+
+new = re.sub('[^0-9]','',string)  böyle olunca sadece 6298345 kaldı
+
+______________________________________________________________________________
+
+Final Project 
+
+https://www.programiz.com/python-programming/examples/calculator
+
+# Program make a simple calculator
+
+# This function adds two numbers
+def add(x, y):
+    return x + y
+
+# This function subtracts two numbers
+def subtract(x, y):
+    return x - y
+
+# This function multiplies two numbers
+def multiply(x, y):
+    return x * y
+
+# This function divides two numbers
+def divide(x, y):
+    return x / y
+
+
+print("Select operation.")
+print("1.Add")
+print("2.Subtract")
+print("3.Multiply")
+print("4.Divide")
+
+while True:
+    # Take input from the user
+    choice = input("Enter choice(1/2/3/4): ")
+
+    # Check if choice is one of the four options
+    if choice in ('1', '2', '3', '4'):
+        num1 = float(input("Enter first number: "))
+        num2 = float(input("Enter second number: "))
+
+        if choice == '1':
+            print(num1, "+", num2, "=", add(num1, num2))
+
+        elif choice == '2':
+            print(num1, "-", num2, "=", subtract(num1, num2))
+
+        elif choice == '3':
+            print(num1, "*", num2, "=", multiply(num1, num2))
+
+        elif choice == '4':
+            print(num1, "/", num2, "=", divide(num1, num2))
+        break
+    else:
+        print("Invalid Input")
+
+
+kendi örneğimiz
+
+import re
+
+print("Our Magical Calculator")
+print("Type 'quit' to exit\n")
+previous = 0
+run = True
+
+def performMath():
+    global run
+    global previous
+    equation =""
+    if previous ==0:
+        equation = input("Enter equation:")
+    else:
+        equation = input(str(previous))
+
+    if equation =='quit':
+        print("Goodbye, human.")
+        run = False
+    else:
+        equation = re.sub('[a-zA-Z,.:()" "]','',equation)
+        
+        if previous ==0:
+            previous = eval(equation)
+        else:
+            previous = eval(str(previous) + equation)
+
+while run:
+    performMath()
  
  
+ //____________________________________________________________________________________________________________________________________________________//
+ 
+ 
+ 
+ 
+ 
+ 
+ //____________________________________________________________________________________________________________________________________________________//
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ //____________________________________________________________________________________________________________________________________________________//
+ 
+ 
+ 
+ 
+ 
+ //____________________________________________________________________________________________________________________________________________________//
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ //____________________________________________________________________________________________________________________________________________________//
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ //____________________________________________________________________________________________________________________________________________________//
  
  
