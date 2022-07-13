@@ -1,3 +1,276 @@
 https://www.udemy.com/course/intro-scrapy-create-a-reddit-bot-with-python/learn/lecture/8808752?start=0#overview
 
 1 saat
+
+
+conda install scrapy
+
+anaconda prompttan scrapy yazınca çeşitli komutlar çıkıyor
+
+anaconda prompttan scrapy shell yazalım
+
+açılan ekranda 
+fetch('https://www.reddit.com/r/funny/')  enter
+
+response.url ile gönderdiğimiz link çıkar
+
+response.text ile aldığı text görünür
+
+sonra reddit sayfasında başlıklardan birine sağ tıklayıp incele diyelim
+
+response. deyip tab deyince 17 komut görünür
+
+response.css('h3._eYtD2XCVieq6emjKBH3m').extract()    başlıkları çıkaralım dedik
+videoda response.css('a.title').extract()
+
+yeni komut
+response.css('a.title::text').extract()
+
+response.css('h3._eYtD2XCVieq6emjKBH3m::text').extract() 
+
+response.css('h3._eYtD2XCVieq6emjKBH3m::attr(href)').extract()
+
+response.css('a.title::attr(href)').extract()
+
+yeni komut
+
+response.css('div.score.unvoted::attr(title)').extract()
+
+Ders9 spider
+
+cd \Introduction_Scrapy_with_Python dedik sonra scrapy startproject reddit dedik
+
+cd reddit
+
+scrapy genspider reddit_job reddit.com
+
+Sonra reddit_job.py dosyasında revizeler yapıyoruz
+
+ÖNCE
+# -*- coding: utf-8 -*-
+import scrapy
+
+
+class RedditJobSpider(scrapy.Spider):
+    name = 'reddit_job'
+    allowed_domains = ['reddit.com']
+    start_urls = ['http://reddit.com/']
+
+    def parse(self, response):
+        pass
+
+SONRA
+
+# -*- coding: utf-8 -*-
+import scrapy
+
+
+class RedditJobSpider(scrapy.Spider):
+
+    name = 'reddit_job'
+
+    allowed_domains = ['reddit.com']
+    start_urls = ['http://reddit.com/r/funny/']
+
+
+    def parse(self, response):
+        print(response.css("a.title::text").extract())
+	print(response.css("a.title::attr(href)").extract())
+	print(response.css("div.score.unvoted::attr(title)").extract())
+
+şeklinde revize ettik
+
+scrapy crawl reddit_job
+
+scrapy crawl reddit_job --nolog
+
+Ders 10
+
+bir üstteki klasörde items.py vardı
+
+# -*- coding: utf-8 -*-
+
+# Define here the models for your scraped items
+#
+# See documentation in:
+# https://doc.scrapy.org/en/latest/topics/items.html
+
+import scrapy
+
+
+class RedditItem(scrapy.Item):
+    # define the fields for your item here like:
+    # name = scrapy.Field()
+    pass
+
+Şu şekilde revize ettik
+
+# -*- coding: utf-8 -*-
+
+# Define here the models for your scraped items
+#
+# See documentation in:
+# https://doc.scrapy.org/en/latest/topics/items.html
+
+import scrapy
+
+
+class RedditItem(scrapy.Item):
+    # define the fields for your item here like:
+    # name = scrapy.Field()
+    title = scrapy.field()
+    href=scrapy.field()
+    score=scrapy.field()
+
+Sonrasında bizim reddit_job.py içinde yeniden revize ettik üsttekine bağımlı olarak
+
+# -*- coding: utf-8 -*-
+import scrapy
+
+from reddit.items import RedditItem
+
+class RedditJobSpider(scrapy.Spider):
+
+    name = 'reddit_job'
+
+    allowed_domains = ['reddit.com']
+    start_urls = ['http://reddit.com/r/funny/']
+
+
+    def parse(self, response):
+        titles = (response.css("a.title::text").extract())
+	hrefs =  (response.css("a.title::attr(href)").extract())
+	scores = (response.css("div.score.unvoted::attr(title)").extract())
+
+	for item in zip(titles,href,scores):
+		new_item = RedditItem()
+		
+		new_item['title'] = item[0]
+		new_item['href'] = item[1]
+		new_item['score'] = item[2]
+		
+		yield new_item
+
+reddit_job içine ekledik
+
+sonra scrapy crawl reddit_job çalıştırdık
+
+şimdi çıktıyı alalım
+
+scrapy crawl reddit_job -o out_file.csv -t csv
+
+Ders 11
+
+filter score value
+
+bir üstteki klasörde yer alan settings.py dosyasında şu değişikliği yapıyoruz
+
+ITEM_PIPELINES = {
+    'reddit.pipelines.RedditPipeline': 300,
+}
+bu 3 satırı açıyoruz
+
+Sonra aynı klasördeki pipelines.py dosyasını değiştirelim
+
+# -*- coding: utf-8 -*-
+
+# Define your item pipelines here
+#
+# Don't forget to add your pipeline to the ITEM_PIPELINES setting
+# See: https://doc.scrapy.org/en/latest/topics/item-pipeline.html
+
+
+class RedditPipeline(object):
+    def process_item(self, item, spider):
+	return item
+
+
+SONRA
+
+# -*- coding: utf-8 -*-
+
+# Define your item pipelines here
+#
+# Don't forget to add your pipeline to the ITEM_PIPELINES setting
+# See: https://doc.scrapy.org/en/latest/topics/item-pipeline.html
+
+from scrapy.exceptions import DropItem
+
+class RedditPipeline(object):
+    def process_item(self, item, spider):
+	if int(item['score']) > 1000:
+        	return item
+	else:
+		raise DropItem("too low score")
+
+Şimdi kodu çalıştıralım
+
+scrapy crawl reddit_job -o out_file.csv -t csv
+
+
+ders 12
+
+birden fazla sayfa olunca next üzerine gelip inceleye basıyoruz
+
+span class içinde next button var
+oradaki hrefi alıyoruz
+
+response.css('span.next-button').extract()
+
+burada loop yapmak lazım
+
+response.css('span.next-button').css('a::attr(href)').extract()
+
+response.css('span.next-button').css('a::attr(href)').extract()[0]
+
+Ders 13
+
+reddit_job.py içine yeni komutlar ekliyoruz
+
+from scrapy.http.request import Request
+
+next_page = response.css('span.next-button').css('a::attr(href)').extract()[0]
+
+yield Request(url=next_page,callback=self.parse)
+
+
+Sonra hali
+
+# -*- coding: utf-8 -*-
+import scrapy
+
+from reddit.items import RedditItem
+from scrapy.http.request import Request
+
+class RedditJobSpider(scrapy.Spider):
+
+    name = 'reddit_job'
+
+    allowed_domains = ['reddit.com']
+    start_urls = ['http://reddit.com/r/funny/']
+
+
+    def parse(self, response):
+        titles = (response.css("a.title::text").extract())
+	hrefs =  (response.css("a.title::attr(href)").extract())
+	scores = (response.css("div.score.unvoted::attr(title)").extract())
+
+	for item in zip(titles,href,scores):
+		new_item = RedditItem()
+		
+		new_item['title'] = item[0]
+		new_item['href'] = item[1]
+		new_item['score'] = item[2]
+		
+		yield new_item
+
+
+	next_page = response.css('span.next-button').css('a::attr(href)').extract()[0]
+	
+	yield Request(url=next_page,callback=self.parse)
+
+
+Şimdi çalıştıralım
+
+scrapy crawl reddit_job -o out_file.csv -t csv
+
