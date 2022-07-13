@@ -1,0 +1,49 @@
+https://www.udemy.com/course/learn-data-cleaning-with-python/learn/lecture/18241000?start=0#overview
+df1.columns=df1.columns.str.strip().str.lower().str.replace(' ','_').str.replace('(','').str.replace(')','')
+df['height']=df['height']*2.54  
+df['height']=df['height'].apply(np.int64)
+df['weight']=df['weight'].apply(np.float64)
+df['country']=df['country'].str.replace('GERMANYY','GERMANY')
+df['city']=df['city'].str.split()  başındaki sonundaki boşlukları siler
+df.dropna(how='all',inplace=True)
+df['NAME']=df['NAME'].str.pad(12,side='right',fillchar='_')    sağdan 12 karakterden sonra _ yazar
+df.drop(['CITY'],axis=1,inplace=True)  city kolonunu siler
+df.drop(['HEIGHT','WEIGHT'],axis=1,inplace=True)  2 kolonu da siler
+df['Total Account']=df['acc A']+df['acc B'] iki kolonu toplar
+df['Total Account?']=np.where(df['Total Account']==df['Total Account2'],'True','False') 
+toplamlar eşitse True değilse False yazar
+df.loc[df['Total Account?']=='False']
+len(df.loc[df['Total Account?']=='False'])
+df[df.duplicated()]
+sum(df.duplicated())
+df_duplicates=df.drop_duplicates()
+duplicates_df=df[df.duplicated(['HEIGHT'])]
+unique_df=df.drop_duplicates(['HEIGHT'])
+missinglere bakalım
+df.isnull()
+df.isnull().any()
+df.isnull().sum()
+df.isnull().values.any()
+df.isnull().sum().sum()
+df_cleaned=df.dropna(how='all')
+df_without_columns=df.dropna(axis=1,how='all')
+df.dropna(thresh=5)   5 değerden az satırı sil diyoruz
+df2=df.copy()
+df3=df.fillna(0)  0 ile doldurduk missingleri
+df_no_missing=df.dropna()
+
+import seaborn as sns
+outlierlara bakalım
+bplot=sns.boxplot(y='lifeExp',x='continent',data=outliers_df_2007,width=0.5,palette='colorblind')
+bplot=sns.stripplot(y='lifeExp',x='continent',data=outliers_df_2007,jitter=True,marker='o',alpha=0.5,color='colorblind')
+istersek bplot.axes.set_title()
+bplot.set_xlabel()
+bplot.set_ylabel()  verebiliriz
+Q1=outliers_df.quantile(0.25)
+Q3=outliers_df.quantile(0.75)
+IQR=Q3-Q1
+IQR
+outliers_df_iqr = outliers_df[~((outliers_df < (Q1 - 1.5 * IQR)) |(outliers_df > (Q3 + 1.5 * IQR))).any(axis=1)]
+outliers_df_iqr.shape
+
+1 saatlik eğitim bitti
