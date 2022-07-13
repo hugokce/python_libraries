@@ -1,0 +1,175 @@
+https://www.udemy.com/course/python-scrapy-ile-web-scraping-web-kazima-basics/learn/lecture/21311674?start=0#overview
+
+2 saat
+
+anaconda kurduk
+prompttan bakalım
+
+conda info
+conda create --name webkazima python=3.7  sanal ortam oluşturuyoruz
+
+conda activate webkazima ile aktif ediyoruz
+
+conda install -c conda-forge scrapy
+
+scrapy 
+
+sonra klasörümüzde yeni proje oluşturduk
+
+scrapy startproject amazon
+
+cd amazon dedik içine girdik
+
+scrapy genspider amazonsp amazon.com
+
+scrapy crawl amazonsp
+
+istersek sanal ortam oluşturabiliriz ben oluşturmadım komut bu
+python -m ipykernel install --user --name mykernel
+
+301 redirect demek
+https olanlara gitmemiz lazım
+
+Şimdi spiderı inceleyelim
+
+\amazon\amazon\spiders içindeki amazonsp.py dosyasını inceleyelim
+
+amazon.com/robots.txt siteye kimlerin girebileceğini ve sitede hangi sayfaralara erilebileceğini gösterir
+
+settings.py içindeki ROBOTSTXT_OBEY = True  False yaptık sonradan yapmamışız True imiş
+Ayrıca amazonps.py içindeki  start_urls = ['http://amazon.com/']
+ start_urls = ['https://amazon.com/']  yaptık
+
+github sayfasına gittik
+
+https://github.com/scrapy/scrapy/blob/master/scrapy/spiders/__init__.py
+
+https://github.com/scrapy/scrapy/tree/master/scrapy/core
+
+---------------------------------
+İlk hali
+
+# -*- coding: utf-8 -*-
+import scrapy
+
+
+class AmazonspSpider(scrapy.Spider):
+    name = 'amazonsp'
+    allowed_domains = ['amazon.com']
+    start_urls = ['https://amazon.com/']
+
+    def parse(self, response):
+        pass
+
+
+----------------------------------------------
+
+Amazondan smart phones deyip Android filtresi ile gelen sayfanın 
+linkini içeri yazdık
+https://www.amazon.com/s?k=smartphones&i=mobile&rh=n%3A2335752011%2Cn%3A7072561011%2Cn%3A2407749011%2Cp_n_feature_twenty_browse-bin%3A17881876011&dc&qid=1599427775&rnid=2335752011&ref=sr_nr_n_1
+
+yeni hali
+
+# -*- coding: utf-8 -*-
+import scrapy
+
+
+class AmazonspSpider(scrapy.Spider):
+    name = 'amazonsp'
+    allowed_domains = ['amazon.com']
+    
+    def start_requests(self):
+        url='https://www.amazon.com/s?k=smartphones&i=mobile&rh=n%3A2335752011%2Cn%3A7072561011%2Cn%3A2407749011%2Cp_n_feature_twenty_browse-bin%3A17881876011&dc&qid=1599427775&rnid=2335752011&ref=sr_nr_n_1'
+        yield scrapy.Request(url)
+    def parse(self, response):
+        yield {'response':response.body}
+
+
+----------------------------------------------------------------
+HTML ve CSS bilmek gerekiyor
+
+Elemanların nasıl gözükeceğini css styles kısmı belirliyor
+Sadece stil sayfasında belirlenen stil sınıflarını kullanarak
+htmldeki elemanları bulabiliriz
+
+html içindeki taglerin nasıl görünecekleri bu htmle bağlı ayrı css
+kodu ile belirlenir.
+
+EA1 görseli aldım
+
+response.css
+response.xpath
+
+tagleri doğru bulmakta zorlanıyorsak scrapy shell ile bulmaya çalışırız
+(cmd içinde)  ya da biz şimdi jupyter üzerinden çalışacağız
+EA2 ile yapılır.
+
+html sayfasından üstteki bir classı copy outerHTML diyelim
+ve notebookta metin = ''' içine yapıştıralım'''
+
+-----------------------------------
+amazonsp.py yeni hali
+
+
+# -*- coding: utf-8 -*-
+import scrapy
+
+
+class AmazonspSpider(scrapy.Spider):
+    name = 'amazonsp'
+    allowed_domains = ['amazon.com']
+    
+    def start_requests(self):
+        url='https://www.amazon.com/s?k=smartphones&i=mobile&rh=n%3A2335752011%2Cn%3A7072561011%2Cn%3A2407749011%2Cp_n_feature_twenty_browse-bin%3A17881876011&dc&qid=1599427775&rnid=2335752011&ref=sr_nr_n_1'
+        yield scrapy.Request(url)
+    def parse(self, response):
+        marka = response.xpath('.//span[@class="a-size-medium a-color-base a-text-normal"]/text()').extract()
+        yield {'brand':marka}
+
+
+-------------------------------------------------------------------
+settings.py içindeki ROBOTSTXT_OBEY = True
+USER_AGENT = 'amazon (+http://www.yourdomain.com)' başındaki # kaldırdık
+
+amazonsp.py yeni hali
+
+# -*- coding: utf-8 -*-
+import scrapy
+
+
+class AmazonspSpider(scrapy.Spider):
+    name = 'amazonsp'
+    allowed_domains = ['amazon.com']
+    custom_setting = {
+            'FEED_URI':'veriler.json',
+            'FEED_FORMAT':'json'
+                     }
+    def start_requests(self):
+        url='https://www.amazon.com/s?k=smartphones&i=mobile&rh=n%3A2335752011%2Cn%3A7072561011%2Cn%3A2407749011%2Cp_n_feature_twenty_browse-bin%3A17881876011&dc&qid=1599427775&rnid=2335752011&ref=sr_nr_n_1'
+        yield scrapy.Request(url)
+    def parse(self, response):
+        marka = response.xpath('.//span[@class="a-size-medium a-color-base a-text-normal"]/text()').extract()
+        yield {'brand':marka}
+
+-------------------------------------------------------------------
+503 aldım
+
+settings.py içinden bakalım
+
+ROBOTSTXT_OBEY = False yapıp oraya bakmamasını sağlayabiliriz
+#CONCURRENT_REQUESTS = 32  bunu açarsak normalde 16 aynı anda istek
+yaparken 32ye çıkarmış oluruz.
+Bu concurrent_requests 1 de olabilir. Ona göre 
+DOWNLOAD_DELAY =3 mesela bunu arttırarak arayı da açabiliriz.
+
+#COOKIES_ENABLED = False  cookies bilgisi isterse bunu açabiliriz
+
+#TELNETCONSOLE_ENABLED = False  bunun enable kalması uygundur
+
+#SPIDER_MIDDLEWARES = {
+#    'amazon.middlewares.AmazonSpiderMiddleware': 543,
+#}    Bunlar ileri konseptler advanced eğitiminde anlatıyormuş hoca
+
+#AUTOTHROTTLE_ENABLED = True  serverla olan bağı ayarlıyor 1 1,5 sn
+koyuyor araya vs.
+
