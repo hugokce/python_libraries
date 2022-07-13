@@ -1,0 +1,51 @@
+https://www.udemy.com/course/learn-statistical-data-analysis-with-python/learn/lecture/24449092?start=0#overview
+
+credit_df['Saving accounts'].value_counts().plot(kind='bar'); 
+plt.hist(credit_df['Duration'], bins=10, histtype='bar', rwidth=0.9);
+pie chart
+credit_savings = credit_df['Saving accounts'].value_counts()
+labels = credit_savings.index.tolist()
+plt.pie(credit_savings, labels=labels, autopct='%i%%');
+box plot
+sns.boxplot(credit_df["Duration"]);
+central tendency
+mean_age = credit_df['Age'].mean()
+mean_age
+round(mean_age, 0)
+
+median_age = credit_df['Age'].median()
+median_age
+
+mode_age = credit_df['Age'].mode().iloc[0]
+mode_age
+
+dispersion 
+credit_df["Credit amount"].var()
+credit_df["Credit amount"].std()
+credit_df_max = credit_df["Credit amount"].max()
+credit_df_min = credit_df["Credit amount"].min()
+
+# Calculating the range
+credit_df_max - credit_df_min
+credit_df["Credit amount"].quantile([0.25, 0.5, 0.75])
+credit_df["Credit amount"].skew()
+credit_df["Credit amount"].kurt()
+credit_df['Credit amount'].describe()
+
+scatter
+startup_df.plot.scatter(x='R&D Spend', y='Profit') 
+plt.title('R&D Spend vs Profit') 
+plt.show()
+
+Pearson Correlation
+pearson_coeff = startup_df["R&D Spend"].corr(startup_df["Marketing Spend"], method="pearson") 
+pearson_coeff
+startup_df.corr()
+sns.heatmap(startup_df.corr(), annot=True, vmin=-1, vmax=1);
+
+Line chart
+candy2016_plus_df = candy_df[candy_df['observation_date'] > '2015-12-01']
+candy2016_plus_df.head()
+candy2016_plus_df.plot.line(x='observation_date', y='IPG3113N');
+
+
