@@ -431,7 +431,495 @@ while run:
  
  //____________________________________________________________________________________________________________________________________________________//
  
+https://www.udemy.com/course/data-manipulation-with-pandas-masterclass/learn/lecture/26338542#overview
+DataManipulationPandasMasterclass_1saat_FrancescoMosconi
+zerotodeeplearning.com
+
+titanic=pd.read_csv("data/titanic.csv)
+titanic.to_excel('titanic.xlsx',sheet_name='passengers',index=False)
+
+ages=titanic["Age]  series
+age_sex=titanic[["Age","Sex"]]  dataframe
+
+above_35=titanic[titanic["Age"]>35]
+class_23=titanic[titanic["Pclass"].isin([2,3])]
+class23=titanic[(titanic["Pclass"]==2) | (titanic["Pclass"]==3)]
+
+adult_names=titanic.loc[titanic["Age"]>35,"Name"]
+titanic.iloc[9:25,2:5]
+
+titanic[["Age","Fare"]].median()
+titanic[["Sex","Age"]].groupby("Sex").mean()
+
+titanic["Pclass"].value_counts()
+titanic.groupby("Pclass")["Pclass"].count()
+
+titanic.sort_values(by="Age")
+titanic.sort_values(by=["Pclass","Age"],ascending=False)
+
+no2_subset.pivot(columns="location",values="value")
+no_2=no2_pivoted.melt(id_vars="date.utc")
+
+air_quality.pivot_table(
+	values="value",
+	index="location",
+	columns="parameter",
+	aggfunc="mean")
+
+air_quality=pd.concat([air_quality_pm25,air_quality_no2],axis=0)
+air_quality=pd.merge([air_quality, station_coord,how="left",on="location")
+
+air_quality["datetime"]=pd.to_datetime(air_quality["datetime"])
+air_quality["datetime"].max() - air_quality["datetime"].min()
+pd.Timestamp
+pd.Timedelta
+
+ek komutlar
+df.head(),df.tail(),df.info(),df.describe(), pd.get_dummies()
+.isnull(),.isna(),notna(), .dropna(),.fillna()
+.all(), .any() , .apply(), .rolling(), .expanding(), .ewm()
+.str. , .cut()
+
+air_quality.plot()
+air_quality.plot.scatter(x="station_london",y="station_paris",alpha=0.5)
+
+bit.ly/ztdl_pandas
+https://github.com/zerotodeeplearning/ztdl-masterclasses/blob/master/notebooks/Data_Manipulation_with_Pandas.ipynb
+https://github.com/zerotodeeplearning/ztdl-masterclasses  download ettim kısa eğitimler içinde var
+ztdl-masterclasses-master.zip
+Data_Manipulation_with_Pandas.ipynb  colabtan indirdim
+
+çözümler
+df.query('Survived==1').head()
+df.query('Embarked=="S"').head()
+df[df['Sex']=='male'].head()
+df[(df.Fare<40000) & (df.Pclass==3)].head()
+df.query('PassengerId==674')
+df['Age'].mean()
+df['Survived'].value_counts()
+df['Sex'].value_counts()
+df.pivot_table(index='Survived',columns='Sex',values='PassengerId',aggfunc='count')
+df.pivot_table(index='Survived',columns='Pclass',values='Fare',aggfunc='mean')
+
+lab2
+top_countries=dfcountries.tail(1).transpose().iloc[:,0].sort_values(ascending=False).head(20)
+top_countries
+
+top_countries.sort_values().plot(kind='barh',title='Total cases',figsize=(15,10))
+
+//____________________________________________________________________________________________________________________________________________________//
  
+https://www.udemy.com/course/python-for-beginners-new/learn/lecture/30160220?start=0#overview
+2 saat
+kali debian bazlıdır
+vs code kurarken debian bazlı olanı kurduk
+sudo dpkg -i code_1.52.1-1334.deb deriz
+veri tipleri
+int, float,bool, str,list,tuple,set,dict
+round(1.5) 1 
+abs(-4)
+var1,var2,var3=10,20,30
+print(var1,var2,var3)
++ ile stringleri birleştirebiliriz
+str(), int()
+var='I\'m a writer' escape karakteri
+var 'I\'m a writer \\ngineer'
+print("hi {} your age is {}".format(user,age))
+print("hi {0} your age is {1}".format(user,age))
+bool(1) bool(0) 
+matrix=[
+[1,2,3],
+[4,5,6],
+[7,8,9]
+]
+print(matrix[0][1]) b verir
+
+var1={
+"name":"mike",
+"age":30}
+print(var1["name"])
+print(var1["age"])
+
+var1=[1,2,{
+"Name":"Mike",
+"Age":30}]
+print(var1[2])
+print(var1[2]["name"])
+
+tup=('a','b','c')
+print(tup[1])
+
+break
+i=0
+while(i<10):
+	print(i)
+	i=i+1
+	if(i==5):
+		break
+
+i=0
+while(i<10):
+	i=i+1
+	if(i==5):
+		continue
+	print(i)
+	
+i=0
+while(i<10):
+	i=i+1
+	if(i==5):
+		pass
+	print(i)
+
+def fun1(par1,par2):
+	i=0
+	print("this is inside fun1")
+	return i+par1+par2
+
+print(fun1(10,20))
+
+args,kwargs
+def fun1(*args):
+	i=0
+	print(args[2])
+	
+fun1(10,20,30,40)
+
+def fun1(*args,**kwargs):
+	print(kwargs)
+fun1(10,20,30,40,var1=11,var2=12)
+
+def fun1(*args,**kwargs):
+	print(kwargs["var1"])
+fun1(10,20,30,40,var1=11,var2=12)
+
+packages kısmının detayı diğer eğitimde var
+error handling diğer eğitimde detayı var
+IO bilgileri diğer eğitimde var
+ 
+ 
+ //____________________________________________________________________________________________________________________________________________________//
+ 
+https://www.udemy.com/course/introduction-to-programming-with-python-beginners-course/learn/lecture/6359294#overview
+2,5 saat 
+printing.py, stringNumber.py ve printingNumbers.py indirildi
+userinput.py, comment.py,mathfunctions.py, formating.py indirildi
+indentation.py, conditional.py, conditionalforcal.py, conditionalstringinput.py indirildi
+forloop.py indirildi
+for z in range(1,10,2):
+	print(z)
+
+prime.py indirildi
+def prime():
+	x=int(input("Enter a number: "))
+
+	i=2
+	while(i<x):
+		if(x%i==0)
+			print("It is not prime number")
+			break
+		i=i+1
+	else:
+		print("It is a prime number")
+
+
+prime()
+
+math.py indirildi
+import math
+math.pow(x,2)
+math.sqrt()
+math.pow(x,3)
+math.sin()
+
+functions.py indirildi
+list.py, loopandlist.py indirildi
+listeye değer ekleme
+x.append("khan")
+x.insert(1,"zafer")  ikinci değere atama yapıyoruz
+0 olsaydı ilk değerdi
+x.remove("zafer")
+x.pop(0) ilk değeri siler
+studentnumbers kaç öğrencinin değerinin girileceğini gösteren liste
+x=[]
+y=[]
+studentnumber=int(input("enter number of students"))
+for i in range(students_numbers):
+	name=Str(input("enter name"))
+	marks=str(input("enter marks"))
+	x.append(name)
+	y.append(marks)
+
+print(x)
+print(y)
+firstQuiz.py indirildi
+Basic calculator ve scientific calculator oluşturuldu
+
+önce hangi işlem yapılmak isteniyorsa onun değerini al 1,2,3,4
+onu key değerine ata
+if key==1 ise summation yap
+if key==2 
+if key==3
+if key==4 şeklinde devam ediyor
+
+bilimsel hesap makinesi için
+import math deriz
+fonksiyon için değer alıp x e atarız
+if x==1 sin yapar
+ angle alır math.sin(angle) bunu resulta atar
+if x==2 cos yapar
+ angle alır math.cos(angle) bunu resulta atar
+if x==3 log yapar
+ angle alır math.log10(angle) bunu resulta atar
+if x==4 power yapar
+ base alır power alır math.pow(base,angle) bunu resulta atar
+her seferinde resultı 0a atadık
+
+ //____________________________________________________________________________________________________________________________________________________//
+ 
+ https://www.udemy.com/course/python-scripting-complete-course/learn/lecture/25925606?start=0#overview
+2 saat
+for i in range(0,6):
+    for j in range(0,i+1):
+        print("* ",end=" ")
+    print("\r")
+print("Outside Loop")
+
+listelerde len(),min(),max(), cmp(list1,list2) listeleri karşılaştırır
+list1.append(), list1.count(), list1.extend(list2), list1.reverse()
+
+mixTuple = numTuple+nameTuple
+len(numTuples)
+nameList=["Tracy","Victor"]
+sep=list(map(list,nameList))
+print(sep) -> [['T', 'r', 'a', 'c', 'y'], ['V', 'i', 'c', 't', 'o', 'r']]
+sep[0] -> ['T', 'r', 'a', 'c', 'y']
+
+sum = lambda arg1,arg2:arg1+arg2
+print(sum(10,20))
+
+Classlar
+class Employee:
+    empCount=0
+    
+#    def __init__(self):
+#        self.empId=0
+#        self.empname="Demo"
+#        self.empSalary=0
+#        Employee.empCount+=1
+        
+    def __init__(self,empId,name,salary):
+        self.empId=empId
+        self.empname=name
+        self.empsalary=salary
+        Employee.empCount+=1
+        
+    def dispEmployee(self):
+        print("EMPID:",self.empId,"\nNAME : ",self.empname,"\nSALARY : ",self.empsalary)
+        
+    def TotalCountofEmployee(self):
+        print("Total Employees : ",Employee.empCount)
+
+emp1=Employee(101,"Tracy",35000)
+emp1.dispEmployee()
+emp2=Employee(102,"Victor",40000)
+emp2.dispEmployee()
+emp1.TotalCountofEmployee()
+
+EMPID: 101 
+NAME :  Tracy 
+SALARY :  35000
+EMPID: 102 
+NAME :  Victor 
+SALARY :  40000
+Total Employees :  2
+ 
+ 
+ 
+ //____________________________________________________________________________________________________________________________________________________//
+ 
+https://www.udemy.com/course/ready-for-python-within-an-hour/learn/lecture/13607122#overview
+1 saat
+https://github.com/vermavinay982/Python-Course-Udemy
+Python-Course-Udemy-master.zip indirildi
+a="hello "
+print(a*4+" :::: too much of hellooo " )
+spyder ile ilerliyor zipteki dosya.
+
+if(a=="Yes"):
+	print("'a' must have to die now ")
+elif(a=="No"):
+	print("let the 'a' live ")
+else:
+	print("Input was wrong now you have to die")
+
+
+#//Loop
+
+a=10
+while a>0:
+	print(a)
+	a-=1
+
+for i in range(len(a)):
+	print(a+str(i))
+
+for i in range(len(a)):
+	print(a[i])
+
+i=20
+while i:
+	print("a",end=' ')
+	i-=1
+
+
+list=[]
+list.append("an")
+list.append("apple")
+list.append("a")
+list.append("day")
+
+for list_val in list:
+	print(list_val,end=" ")
+
+list.reverse()
+
+
+list1=[3,2,1]
+list2=[4,5,6]
+print(list1)
+print(list2)
+list1.reverse()
+print(list1)
+
+# just like strings
+list1+=list2
+print(list1)
+list1.remove(4)
+list1.insert(0,4)  0.indexe 4 ekledik
+print(list1)
+list1.sort()
+print(list1)
+list1.index(5)
+max(list1)
+
+"""
+WET- write everything twice (we enjoy typing)
+DRY- Dont Repeat Yourself
+"""
+
+def add_strange(a):
+	a+=" strange "
+print("strange is added now")
+
+a="my name is mister"
+print(a)
+
+add_strange(a)
+print(a)
+a="my name is doctor"
+print(a)
+
+def add_strange(b):
+	global a
+	a+=" strange"
+	print("strange is added now")
+
+add_strange(a)
+print(a)
+
+def print_in_style(word):
+	return "heyy this is a {} ".format(word)
+
+a="happy"
+result = print_in_style(a)
+print(result)
+
+class danceParty:
+	dancers=5
+	guests=20
+	waiters=8
+
+class kittyParty:
+	dancers=0
+	guests=10
+	waiters=2
+
+class weddingParty:
+	dancers=25
+	guests=200
+	waiters=28
+
+birthday=danceParty()
+promotion=kittyParty()
+marriage=weddingParty()
+
+total_dancers = birthday.dancers + promotion.dancers + marriage.dancers 
+print(total_dancers)
+
+if(marriage.guests>150):
+	print("book a larger venue")
+else:
+	print("smaller one is okay")
+
+marriage.guests=100
+dancers_cost=0
+
+while weddingParty.dancers>0:
+	dancers_cost+=100
+	weddingParty.dancers-=1
+
+print("dancers cost for wedding party is '{}' ".format(dancers_cost))
+
+class bio_data:
+	def __init__(self,name,age):
+		self.name=name
+		self.age=age
+	def child(self):
+		self.age=5
+	def adult(self):
+		self.age=18
+	def increase20(self):
+		self.age+=20
+
+person1=bio_data("Rohan",40)
+
+print("\n\n\nThe age of person is '{}' and the name is '{}'".format(person1.age,person1.name))
+
+person2=bio_data("Deepak",0)
+
+print(" before executing the function ",end=" ")
+print(person2.age)
+
+person2.adult()
+print(" after executing adult function ",end=" ")
+print(person2.age)
+
+person2.child()
+print(" after executing child function ",end=" ")
+print(person2.age)
+
+person2.increase20()
+print("after executing increment of 20 ",end=" ")
+print(person2.age)
+person2.increase20()
+print("after executing increment of 20 two times ",end=" ")
+print(person2.age)
+ 
+ //____________________________________________________________________________________________________________________________________________________//
+  
+  
+  
+
+ //____________________________________________________________________________________________________________________________________________________//
+  
+  
+  
+ //____________________________________________________________________________________________________________________________________________________//
+ 
+ 
+ 
+ //____________________________________________________________________________________________________________________________________________________//
  
  
  
@@ -441,20 +929,8 @@ while run:
  
  
  
- 
- 
- 
  //____________________________________________________________________________________________________________________________________________________//
- 
- 
- 
- 
- 
- //____________________________________________________________________________________________________________________________________________________//
- 
- 
- 
- 
+
  
  
  
