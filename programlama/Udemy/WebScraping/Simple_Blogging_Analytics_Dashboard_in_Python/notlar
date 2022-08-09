@@ -1,0 +1,19 @@
+https://www.udemy.com/course/simple-blogging-analytics-dashboard-in-python/learn/lecture/12233318?start=15#overview
+
+1 saat
+
+frame.io web sayfası
+
+jupyter ile açtık. scraping olarak dosya oluşturduk
+textstat yoktu pip install textstat ile ekledik.
+
+Index.html direk aldık
+styles.css direk aldık
+flask server 
+
+anaconda prompttan dosyaların olduğu klasöre geldik
+Burada C:\Users\Bootcamp\Desktop\Udemy_Calismalari\Simple_Blogging_Analytics_Dashboard_in_Python_Ty_Shaikh
+sonra python app.py çalıştırdık
+127.0.0.1:5000 flask üzerinden gösterdik
+
+heroku kurulu değil sadece izliyoruz
