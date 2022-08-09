@@ -1,3 +1,35 @@
+Eğitim Linki
+
+#https://www.udemy.com/course/beginners-python-basics-for-data-science-bootcamp/learn/lecture/22240274?start=15#overview
+#3 saat
+
+temel python anlatıyor
+stringte len(), count(), lower(), upper(), replace(), split metodları var
+name.title()
+list.append(), clear(), copy(), count('değer'), sort(), reverse(), pop(), insert(eklenecek index, 'değer'),remove(değer)
+dict.keys(), .values(), .items()
+def currency_convert(euro,pound,yen):
+    euro_usd=euro/10
+    pound_usd=pound/12
+    yen_usd=yen/15
+    print(euro_usd,pound_usd,yen_usd)
+currency_convert(1000,1200,1500)
+sonuçta 100.0,100.0,100.0 verir
+for loop list, string, range , list functiondan, kodtan oluşturulabilir
+for [iterating variable] in [list,sequence,range]:
+    execute task
+
+number=[]
+for i in range(15):
+    number.append(i)
+print(number)
+break ile loopu keser.
+continue ile de denk gelen değeri pas geçer loopa devam eder
+
+
+
+
+
 Egitim Linki
 https://www.udemy.com/course/pythonforbeginnersintro/learn/lecture/2493870?start=0#overview
 
