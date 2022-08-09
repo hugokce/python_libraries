@@ -1,0 +1,495 @@
+https://www.udemy.com/course/python-django-ile-web-uygulama-gelistirme-egitimi-kursu/learn/lecture/19181252?start=0#overview
+
+2 saat
+
+pygame ile oyun yazılabilir
+scikit-learn
+tensorflow
+pytorch
+keras
+
+django flaska göre daha çok gelişmiş
+
+https://www.djangoproject.com/
+
+Sol üst tarafta "extensions" bölümüne gelin ve sırayla 
+aşağıdakileri indirin (install)
+Python,Html Snippets,Django Template,Django Snippets
+
+Win10da environment oluşturmak için
+
+conda create --name djangoenv python=3.7  dedik
+sonra conda activate djangoenv dedik
+
+Anaconda Powershell açtık
+
+İlgili klasöre gelip django_projects1
+pip install virtualenv dedik
+
+pip install django dedik
+
+vscode açılır ilgili klasör seçilir
+sonra .\djangoenv\Scripts\activate edilir venv aktif edilir
+
+https://www.geeksforgeeks.org/creating-python-virtual-environment-windows-linux/
+
+VSCode içinde terminalde
+
+python3 django-admin startproject todo_project dedik
+
+en çok kullandığımız urls.py ve settings.py olacak
+
+server çalıştıralım
+
+cd todo_project
+
+python manage.py runserver
+
+127.0.0.1:8000 sayfası açıldı
+
+settings.py içindeki 
+LANGUAGE_CODE = 'en-us'  LANGUAGE_CODE = 'tr yaptık'
+
+DEBUG=True çalışırken ama canlıya alırken False almalıyız 
+kullanıcılar hataları görmesin
+
+ctrl+c ile durdurulabilir
+
+tekrar çalıştırınca 18 tane paket uygulanmadı diyor o zaman 
+python manage.py migrate  komutunu çalıştırırız
+
+o zaman tekrar ctrl+c ile durdurup python manage.py migrate çalıştırırız
+
+tekrar server çalıştıralım
+python manage.py runserver dedik
+
+http://127.0.0.1:8000/admin  ile admin panelini açalım
+
+tekrar dili en-us yaptık
+
+admine kullanıcı ve şifre vermek için yeni bir terminal oluşturalım
+
+todo projemize gideriz
+cd todo_project
+
+python manage.py createsuperuser
+
+username admin
+email  mdjango@gmail.com
+şifre soruyor  admin
+
+Ilk uygulamamızı yapalım
+
+python manage.py startapp todo_app
+
+admin dosyası admin ile ilgili
+init boş dosya
+apps uygulama ile alakalı.
+models dbye oluşturulacak tabloları belirleriz
+views ise fonksiyonları ve sınıfları çalıştırdığımız yerdir
+
+önce urlleri ayarlayacağız urlye girince nereye gideceğini belirteceğiz
+sonra viewleri ayarlayacağız
+
+Uygulamamızda URL yok önce onu oluşturalım
+
+todo_app içine urls.py new file diyerek oluşturalım
+
+projects altında urls.pyden alıp önce içindeki kodu yapıştıralım
+
+from django.contrib import admin
+from django.urls import path
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+]
+
+sonra ilerleyelim
+
+ama projects altındaki urls.pyde şu değişikliği yapalım
+
+Projectsteki urls.py
+
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('todo_app.urls')),
+]
+
+
+appsteki urls.py
+
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.index,name="index"),
+]
+
+
+
+views 
+
+from django.shortcuts import render
+from django.http import HttpResponse
+
+
+# Create your views here.
+def index(request):
+    return HttpResponse("This is index page")
+
+
+
+projects altındaki settings.py içinde INSTALLED_APPS içine 
+eklememiz lazım
+
+# Application definition
+
+INSTALLED_APPS = [
+    'todo_app',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+]
+
+
+Şimdi bir de about sayfası ekleyelim
+
+apps.py deki url
+
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.index,name="index"),
+    path('about', views.about,name="about"),
+]
+
+
+Viewda ekleyelim
+
+
+from django.shortcuts import render
+from django.http import HttpResponse
+
+
+# Create your views here.
+def index(request):
+    return HttpResponse("This is index page")
+
+def about(request):
+    return HttpResponse("This is about page")
+
+
+
+http://127.0.0.1:8000/about
+
+Templates:
+Projects altında templates adlı klasör oluşturduk
+
+Altına yeni bir klasör daha oluşturduk bu da todo_app oldu
+
+todo_app altına html sayfalarımızı oluşturabiliriz
+
+index.html ve about.html dosyalarını ekledik
+
+Şimdi template klasörümüzü ana dosyaya tanıtalım todoprojects altındaki
+
+settings.pyye gelinir. İçinde templates kısmı var.
+
+DIRS içine ekledik
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR,"templates")],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
+
+Şimdi sıra html sayfalarımızı oluşturmaya.
+
+normalde ! yazınca html olduğu için şablonun çıkması lazım
+Çıkması için CTRL +K ve Mye basılmalı 
+
+Sonra ! yapıp taba bastık
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+</head>
+<body>
+    <h1>This is HOME PAGE</h1>
+</body>
+</html>
+
+
+Şimdi de about.html yapalım
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Page</title>
+</head>
+<body>
+    <h1>This is ABOUT PAGE</h1>
+</body>
+</html>
+
+Bu sefer views içinde HttpREsponse yerine render kullanacağız
+
+apps altındaki views.py 
+
+from django.shortcuts import render
+from django.http import HttpResponse
+
+
+# Create your views here.
+def index(request):
+    return render(request,"todo_app/index.html")
+
+def about(request):
+    return render(request,"todo_app/about.html")
+
+
+Bootstrap 4
+
+getbootstrap.com adresine gidelim
+
+Dokümantasyon kısmına gelelim
+
+Starter template kopyalayalım
+
+Index.html içini şu halden
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+</head>
+<body>
+    <h1>This is HOME PAGE</h1>
+</body>
+</html>
+
+
+Web sayfasındaki Starter template ile değiştiriyorum
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <title>Home Page</title>
+  </head>
+  <body>
+    <h1>This is HOME PAGE</h1>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+
+
+Bu siteden birçok html css sayfasını ekleyebiliriz
+
+Solda Content altındaki Tables kısmından kodu alıp kolaylıkla
+tablo ekleyebiliriz
+
+Component bölümünden de uyarı mesaj vermek istersek kullanırız
+
+En çok butonları kullanacağız
+
+Örneğin danger butonu
+
+<button type="button" class="btn btn-danger">Danger</button>
+
+Carousel ile akan slide
+
+Cardlardan resim açıklamalar koyabiliriz
+
+Yine jumbotron kullanacağız
+
+Yine navbar kullanacağız
+
+_____________________________________________________________
+
+Eğitimin 2.bölümü
+
+getbootstrap.com dan component --> navbar açalım
+
+index.html açtık ortadaki body içindeki this is home page sildip
+bu kopyaladığımız navbar kodunu yapıştırdık
+
+Disable olan kısmı siliyoruz
+Dropdown olan li etiketini de siliyoruz
+
+Navbar yerine To-Do List App dedik
+Home dursun
+Link yerine de About dedik
+Search kısmını Add TO-DO List yaptık
+Search içi için de Add to List dedik
+
+Şimdi jumbotron ekleyelim
+
+Fluid olanı aldık
+
+İçine TO-DO LIST ve This is To-Do list for Python Django Web Development yazdık
+şimdi ortalayalım
+
+center ekleyip yazıları içine alıyoruz
+
+Altına buton ekleyelim
+<button type="button" class="btn btn-outline-success">Success</button>
+
+Aynısını about sayfamızda da yapalım index içini kopyalayıp about içine
+yapıştıralım
+
+Şimdi çokça kullanacağımız base.html dosyamızı oluşturalım
+Her sayfada olması gereken ana faktörlerin olduğu bir dosyadır.
+
+indexteki tüm kodları base.html içine yapıştırdık
+sonra index ve about içini sildik
+
+en başa extend ekledik
+
+{% extends "todo_app/base.html" %}
+
+tüm kodlar geri geldi
+
+şimdi index ve about pagelerin adları hep home page geliyordu onu
+değiştirmek lazım
+
+Basede değişiklik yaparsak hepsi aynı olur.
+
+Index sayfasında Index about sayfasında  da farklı bir başlık görmek
+istiyoruz
+
+O zaman base içine titlelar için block koyarız
+
+<title>
+    {% block title%}
+    {% endblock title %}
+    </title>
+
+sonra index ve about içine block ekleriz
+
+Şimdi about kısmında jumbotron değiştirelim
+
+şimdi basedeki jumbotron yerine
+
+{% block content %}
+{% endblock content %}   ekledik
+
+index ve about sayfalarındaki jumbotron farklılaştırdık
+
+Şimdi de jinja konuşalım
+
+jinja.palletsprojects.com
+
+extends içinde kullandığımız % {} vs jinjadan geliyor
+
+html içinde python çalıştırmak için işe yarayan kodlardır aslında
+
+views.py içinde yeni mehmet diye ekleme yaptık
+
+# Create your views here.
+def index(request):
+    name = "Mehmet Tek"
+    return render(request,"todo_app/index.html",{"name":name})
+
+def about(request):
+    return render(request,"todo_app/about.html")
+
+jinjayı anlamak için yaptığımız indexteki kodu kaldırdık
+<h1>This site is for {{name}}</h1>
+
+viewdan da eklemeleri kaldırdık
+
+create linkine gidebilmek için create.html oluşturalım
+
+Arada create page ekledik
+
+DB'ye kaydetmek için models.py üzerinden gideceğiz
+
+documentation --> models--> fieldtypes
+
+model.py alttaki şekilde değiştirdik
+
+from django.db import models
+from datetime import datetime
+
+# Create your models here.
+
+class Todos(models.Model):
+    title = models.CharField(max_length=100)
+    description = models.TextField(max_length=1000,blank=True)
+    finished = models.BooleanField(default=False)
+    date = models.DateTimeField(default=datetime.now,blank=True)
+
+
+bu bilgileri dbye göndermek için migration yapmak lazım
+
+python manage.py makemigrations
+
+çalışınca migrations altında 0001_initial.py oluştu
+
+şimdi migrate edelim
+
+python manage.py migrate
+
+sonra admin.py içinde işlemlerimizi yapalım
+
+Admin içinde Todoss olarak görüyorsak artık todoları ekleyelim
+
++ ile ekledik ama Todos objects şeklinde geldi bunların adları 
+gelsin istersek
+
+Tablo ekleme:
+
+index.html içine atalım
+
+ekledikten sonra başına
+
+<div class = "container"> div ekleyip ortalamak için container dedik
+
+New To-Dolar ekleyelim
+
+Form bölümünden örnek form aldık getbootstrap.comdan
+
+bölümün sonundaki harfe tıklayınca başındaki tagi de gösterir
+
+normal isteklerde get , form gibi dbye gönderim yapacağımız isteklerde de post isteğini kullanıyoruz
+
+Delete kısmına buton ekliyoruz getbootstrap.comdan
+
