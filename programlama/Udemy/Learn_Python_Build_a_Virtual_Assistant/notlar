@@ -1,3 +1,52 @@
 https://www.udemy.com/course/learn-python-build-a-virtual-assistant-in-python/learn/lecture/18980984?start=0#overview
 
 1 saat
+
+
+https://wiki.wxpython.org/How%20to%20install%20wxPython
+
+pip install wikipedia
+
+pip install wolframalpha
+
+pip install -U wxPython
+
+https://www.wxpython.org/pages/downloads/
+
+For example, if you can't use espeak, use pyttsx or gTTS instead.
+
+Kodları
+
+https://github.com/KhanradCoder/PyDa-Course-Code
+
+www.wolframalpha.com
+
+products.wolframalpha.com/api/
+
+get an appid  buradan code alınır kullanım için
+
+https://pypi.org/project/wolframalpha/
+
+pyda.py içine kodu yazdıktan sonra python pyda.py olarak çalıştırılır
+
+pypi.python.org/pypi/wikipedia/
+
+https://pypi.org/project/wikipedia/1.4.0/
+
+
+https://pythonspot.com/speech-engines-with-python-tutorial/
+
+https://pypi.org/project/SpeechRecognition/3.4.3/
+
+pip install SpeechRecognition==3.4.3
+
+https://github.com/Uberi/speech_recognition/blob/master/examples/microphone_recognition.py
+
+
+Speech Recognitionda sorun olursa 
+alttaki kod çalıştırılır
+You will then want to configure the JACK daemon correctly to avoid that “Cannot allocate memory” error. 
+Run sudo dpkg-reconfigure -p high jackd2 and select “Yes” to do so.
+
+
+https://www.youtube.com/watch?v=NZMTWBpLUa4
