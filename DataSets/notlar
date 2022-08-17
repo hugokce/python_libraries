@@ -42,9 +42,12 @@ https://data.mendeley.com/
 https://data.worldbank.org/
 
 https://scikit-learn.org/stable/datasets/index.html
+from sklearn.datasets import load_breast_cancer
 
 https://apps.ecmwf.int/datasets/
 
 https://www.freecodecamp.org/news/https-medium-freecodecamp-org-best-free-open-data-sources-anyone-can-use-a65b514b0f2d/
+
+
 
 
