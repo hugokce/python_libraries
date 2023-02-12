@@ -5,3 +5,38 @@ https://www.udemy.com/course/time-series-analysis-real-world-projects-in-python/
 Weather prediction  geospatial use cases
 Covid19 healthcare use-case
 Stock Prices prediction var  financial usecase
+
+Project1
+Weather prediction
+
+dataset
+https://drive.google.com/drive/folders/11LIWUl6dbBlKBFF6HSsbSuesV888B0Ie
+
+https://github.com/gindeleo/climate/blob/master/GlobalTemperatures.csv sitesinden data indirilebilir
+https://github.com/gindeleo/climate  komple git indirilir
+
+İkinci dosyayı kaggledan indiririz
+https://www.kaggle.com/datasets/berkeleyearth/climate-change-earth-surface-temperature-data?select=GlobalLandTemperaturesByCity.csv
+
+
+Project 2
+Predicting Covid-19 cases Facebook Prophet
+https://drive.google.com/drive/folders/1ahQ5b2xBERoNG5mrDwGCiYMTNTVL2iTY
+
+https://colab.research.google.com/drive/1k-jlQWhIkFIhtKXQEaimf5WXNl5l_G9r
+
+colab için ipynb ve csv dosya iniyor
+conda install -c conda forge fbprophet deriz
+promptta
+
+Project 3 
+Predict Stock Prices using automated TS models
+
+https://drive.google.com/drive/folders/1LzblRt9Ndr0hplDt4QLKulWM4xSlLEHz
+
+2 dosya indirildi ipynb ve bajfinance.csv
+
+vwap  value weighted average price
+
+
+
