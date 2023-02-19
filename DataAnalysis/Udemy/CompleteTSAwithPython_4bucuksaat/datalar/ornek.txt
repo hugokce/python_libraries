@@ -1,0 +1,2 @@
+Calismada kullanilan datalar yer almaktadır.
+This folder containes datafile which used in study
