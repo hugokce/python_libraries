@@ -3,3 +3,153 @@ https://www.udemy.com/course/complete-time-series-data-analysis-bootcamp-with-py
 4,5 saat
 
 Minerva Singh
+
+215 mb dosya var indirildi Data1.zip olarak
+
+bölüm 2
+read csv ve excel kısımları anlatıldı
+boston1,bostontxt,resp2 ve winequality-red dosyalarını
+okuttuk html okuttuk
+
+https://drive.google.com/file/d/1inrL5WGt5EBQkPiCjNT4tYbaWldn2h78/view 
+sayfasından skore.json için içine aldık. sonra skorea.json olarak kaydettim
+
+https://codebeautify.org/jsonviewer faydalı bir site
+olarak öneriliyor
+
+Bölüm 3
+python_time_func
+female_birth dosyasını kullandık example_ts kullandık
+
+explore_datetime.txt ve AirPassengger.csv kullandık
+
+italy_earthquakes_from_2016-08-24_to_2016-11-30.csv dosyasını kullandık
+
+linechart.txt kullandık
+
+mult1.txt ve all_stocks_2006-01-01_to_2018-01-01.csv 
+kullandık
+
+group_agg-viz.txt kullandık avocado.csv dosyasını kullandık
+
+multiple_line.txt kullandık stock verisi ile.
+
+hist.txt ve deprem verisini kullandık
+
+viz_2vars.rtf ve deprem verisini kullandık
+
+Bölüm 4
+
+MA example Airpassengers.csv ve ma1.txt kullandık
+
+Seasonel kısmında season.txt kullandık airpassengers ile
+
+Testing Stationarity ADF Test
+stationarity.txt kullandık airpassengers ile.
+
+Make ts stationary takelog
+takelog.txt ve airpassengers.csv kullandık
+
+first order differencing ile durağanlaştırma
+simple_Diff.txt kullandık
+
+linear regression for detrending 
+detrending_ols.txt ve airpassengers.csv kullandık
+
+Bölüm 5
+Rolling mean for detecting temporal variation
+rollingmean_fcast.txt ve all_stocks_2006-01-01_to_2018-01-01.csv kullandık
+
+#simple exponential smoothing SES
+ses.txt ve Airpassengers.csv kullandık
+
+#Holt extended simple exponential smoooting
+holt_f.txt ve AirPassengers.csv kullandık
+
+#HoltWinters
+hw1.txt ve AirPassengers.csv kullandık
+
+#AR
+ar.txt ve AirPassengers.csv kullandık
+
+#Implement a Basic ARIMA Model
+basic_arima.txt ve AirPassengers.csv kullandık
+
+#Automated ARIMA & Account for Seasonality (SARIMA)
+auto_arima.txt ve AirPassengers.csv kullandık
+
+Bölüm 6
+Machine Learning for Time Series
+#Random Forest for Identifying for Important Time Periods
+rf.txt ve AirPassengers.csv kullandık
+
+Prophetic Time Series Forecasting
+key_1.csv prophet-1.txt ve train_1.csv kullandık
+
+#Using Prophet For predicting Values for a future time frame
+avocado.csv ve propet2.txt kullandık
+
+Bölüm 7
+What is Keras?
+deep learning library. Neural network api written
+on top of either Theano or TF
+keras modelleme şöyle işler
+model=Sequential() tanımlaması ile başlar
+modeli create ederiz
+
+sonra layers ekleriz 
+model.add()
+Dense ile fully connected layers ekleriz hidden unitleri 
+belirlemek için
+
+activation function ise nonlinearityyi bulmak için
+kullanılır
+
+sonra squential layer oluştururuz
+model.compile()  loss mse, optimizer adam metric de 
+accuracy seçildi örneğin.
+
+sonra model.fit edilir. epoch batch_size ve verbose
+değerleri verilir.
+
+Compilation Theano ve TF kullanır
+
+windowsa keras kurmak için
+conda install keras
+yüklenince import keras geliyorsa sorun yok
+
+conda install theano 
+import theano
+
+yükleme klasörünün içinde keras.json dosyası olur
+orada backend theano dersek ondan çalışır
+
+böyle ister TF istersek de theano arka planda çalışarak
+keras kullanırız
+
+Theory behind ANN and DNN
+Y=SUM(weight*input)+bias 
+
+ANN'de weightleri ayarlayıp errorları minimize etme
+vardır
+
+backpropagation algo
+is a method for training the weights in a multilayer
+feed-forward neural network
+
+tartıları ayarlayıp outputa yakın değerler üretmeye 
+çalışır
+
+tartılardaki en ufak bir değişiklik outputta
+ufak değişikliklere sebep olur.
+
+w +deltaw  --> output + deltaoutput
+
+
+
+
+
+
+
+
+
