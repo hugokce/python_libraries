@@ -1,0 +1,1152 @@
+https://www.udemy.com/course/python-100-gunluk-yazilim-kampi/learn/lecture/37244004?start=15#overview
+
+45 saat
+
+help(name.index)
+name.index("s")
+name.split()
+type(name.split())  list verir
+
+yüzlerce girdi alsak bunları listeye atabiliriz.
+
+myList.insert(2,35) 2.indexe 35 ekler
+myList.count(25)  kaç tane 25 var sayar
+
+int(inputList[1])*2  1.indexteki değeri 2 ile çarparız
+
+sozlüklerde get ile deger yoksa default değer tanıla
+diyebiliriz
+fitness_dict.get("apple",0)  apple yoksa 0 değeri ver
+diyoruz
+
+sozluk["key1"]["nestedkey"] dersek içerideki sözlüğün
+keyine karsılık gelen değeri verir.
+
+len(set(countryList)) dersek listedeki farklı 
+ülkelerin tekil sayısını elde ederiz.
+
+emptySet=set()  ile boş set oluştururuz.
+
+Quiz1 
+https://github.com/atilsamancioglu/P01-PythonBootcampNotebooks
+
+https://github.com/atilsamancioglu/P01-PythonBootcampNotebooks/blob/main/8-Quiz.ipynb
+
+my_string[4]
+my_new_string[4:8]
+my_last_string[::-1]
+float
+89
+mylist=[1,3,"a"]
+mylist=list()
+mylist.append(1)
+mylist.append(3)
+mylist.append("a")
+
+my_list[2][2]
+my_dict["kk2"][1]["k21"]  a'yı verir
+
+set(my_list_tobeset)   3,4,9,10,21,22
+
+True
+
+------------------------------------------
+
+Kontroller Döngüler
+
+5 in [10,20,30]
+5 in (10,20,30)
+5 in {10,20,30}
+5 in my_dict.values() ile degerlerde arayabiliriz
+varsa True döner
+
+for (x,y,z) in mytuple:
+    print(x)  ile sadece xi yazdırırız.
+
+for (key,values) in mydict.items():
+    print(key)
+
+print(f"value of p: {p}") ile formatted şekilde
+o değeri yazdırabiliriz
+print("welcome",name) ile de yazılabilir
+
+indexleri ve değerleri almak istersek
+for element in enumerate(mylist):
+    print(element)
+
+(0,20)
+(1,30) şeklinde tuple döndürür
+
+for (ix,value) in enumerate(mylist):
+    print(ix)
+indexleri verir
+
+zip fonksiyonu ile listeleri biraraya getirebiliriz
+list(zip(list1,list2,list3))
+sonuçta hepsi bir tuple içinde gelir
+
+newlist=[]
+mystring="Metallica"
+newlist=[element for element in mystring] ile
+içini doldurur
+[num/2 for num in value] ile de 2ye bölünmüş halini
+ekleriz
+
+x 5 y 3 z 6
+x>y and z>x   True
+x<y or z>y   True
+
+18 ile 30 arasında
+
+if "c" in mydict.values():
+    print("evet")
+
+if "a" in mydict.keys():
+    print("evet")
+
+for i in mynum:
+    if i%2==0:
+        print(i)
+
+pi=3.14
+cevre = [2*pi*r for i in r_list]
+
+for (key,value) in age_name_list:
+    yasliste.append(value)
+
+muzikgrubu[randint(0,len(muzikgrubu)-1)]
+
+shuffle(muzikgrubu)
+
+[num%2==0 for num in numberlist]
+[F,F,T,F,T,T,F,T]
+
+Bölüm 9 Fonksiyonlar
+kod bloklarıdır, tekrar kullanılabilir
+girdi alabilir , çıktı üretebilir
+
+def hello_name(name):
+    print("hello")
+    print(name)
+
+hello_name("atil") şeklinde çalışır
+argüman alıyor.
+
+def hello_surname(surname="samanci"):
+    print("hello")
+    print(surname)   default değer tanımladık
+
+dışarı çıktı versin şimdi de.
+def summ3(num1,num2,num3):
+    print(num1+num2+num3)
+sadece yazdırır
+
+def return_summ(num1,num2,num3):
+    return num1+num2+num3
+içine print de ekleyebiliriz.
+bu haliyle artık bir değişkene atayabiliriz.
+
+returndan sonra gelen kod çalışmaz o yüzden print
+diyeceksek returnden önce kullanılır
+
+string  a ile mi başlıyor kontrol edelim
+def control_string(s):
+    if s[0]=="a":
+        print("a")
+
+control_string("atlas")
+
+args ve kwargs
+istediğimiz kadar argüman alsın istiyorsak args kullanırız
+def args_sum(*args):
+    return sum(args)
+* desek de anlar
+
+args_sum(10,20,30,40,50,60)
+
+def kwargs_example(**kwargs):
+    print(kwargs)
+
+kwargs_example(apple=100,banana=150,melon=200)
+deyince bizim için dict oluşturur
+
+def kwargs_example2(**kwargs):
+    if "apple" in kwargs:
+        print("apple")
+    else:
+        print(":(")
+
+ozel fonksiyonlar
+def dividenum(num):
+    return num/2
+
+myList=[3,5,7,10,20,30]
+myResultList=[]
+for num in myList:
+    myResultList.append(dividenum(num))
+print(myResultList)
+
+map fonksiyonu ile yapalım
+list(map(divideNum,mylist))
+ile daha kısa halde yapabiliriz
+
+sadece True olanları almak istersek Filter kullanırız
+
+myStringList=["atil","atil samanci","samanci","atlas"]
+def controlString(string):
+    return "Atil" in string
+
+list(filter(controlString,myStringList))
+
+lambdaya bakalım
+multiplyLambda = lambda num : num*3
+
+numlist=[10,20,30,40,50]
+list(map(lambda num:num/4,numlist))
+
+Kapsam Scope
+x=20
+def multipl(num):
+    x=5
+    return num*x
+
+multipl kullansak 10 için bize 50 verir ama 
+x print desek 20 verir
+
+xi fonksyion içinde tanımlamazsak üstteki 20 olan
+değerden alır
+buna L local E enclosing G Global B Builtin
+durumana göre karar verir
+
+#Global kapsamı
+myString="Atil"
+def myfunc():
+	#Enclosing
+    myString="Atil 2"
+     
+    def myfunc2():
+	#Local
+	mystring="Atıl 3"
+	print(mystring)
+    myfunc2()
+
+şu anda mystring Atil döndürür
+
+myfunc çağırırsak atıl3 döndürür
+
+
+global değişkeni değiştirmek istersek global 
+kelimesi ekleriz
+y=10
+def changeY():
+    global y
+    y=5
+    print(y)
+
+changeY() dersek y 5 olur artık 
+
+Sınıflar Class
+class ile def ile yaptığımız yapıdan daha büyük bir 
+yapıya geçiyoruz
+büyük harfle yazilir genelde.
+class Person():
+    pass
+
+bu sınıfla birçok objeyi oluşturabileceğiz
+func ile karışmasın diye adı büyük harfle yazılır
+class Person():
+    name=""
+
+atil=Person() atil artık persondır diyebiliriz
+type(atil) dersek 
+__main__.Person ile
+person sınıfına tabi bir obje olduğunu görebiliriz
+
+atil. tab dersek içindeki name gelir
+
+class Person():
+    name=""
+    age=0
+
+. tab dersek 2 özellği de karşımıza gelir
+
+class Person():
+    name=""
+    age=0
+    gender=""
+
+sınıfların içinde istediğimiz kadar fonksiyon yazabiliriz
+sınfın içindeki fonksiyonlara method denir
+
+def __init__():   init initializer demektir.
+ilk oluşturmak değerini atamak için kullanırız.
+
+bu sınıftan her obje oluşturduğumuzda init çalıştırılır
+sınıf içinde method tanımlıyorsak içine self keywordunu
+tanımlamamız gerekiyor
+
+class Person():
+    name=""
+    age=0
+    gender=""
+
+    #method, initializer
+    def __init__(self):
+        print("init executed") obje oluşturunca bu da
+çalışacak
+
+atil=Person() dediğimzide bu persondan istediğimiz kadar nesne oluşturabiliriz
+o zaman bu init içine vermesini istediğim parametreleri 
+de sorabiliriz
+name gender age vermek zorundasın diyebiliriz 
+o zaman class altında tanımladığımız değişkenleri
+method içindekilerle aynı hale getirebiliriz
+üstteki değişkenlere methodtakileri eşlemek istiyorsak
+initte istenen değişkenlerin değerini vermemiz lazım
+
+self sınıfın kendisine referans veriyor
+self. dediğimizde classta tanımlanan değişkenlere
+referans vereceğimizi ve bu sınıftan oluşturduğumuz
+objelerin özelliğini değiştireceğimizi söylüyoruz
+böylece.
+
+self işte sınıfa referans veren keywordtür.
+javada da thisdir.
+yani method tanımlıyorsak class içinde self içine
+yazmamız gerekiyor.
+
+class Person():
+    #property
+    name=""
+    age=0
+    gender=""
+
+    #initializer method
+    def __init__(self,name,age,gender):
+        self.name=name        
+        self.age=age
+        self.gender=gender
+    #method
+    def test(self):
+        print("test")
+
+artık objeye atadığımızda bu classı test diye
+method da gelecek
+
+selfi her halükarda koymak zorundayız
+
+class Person():
+    #property
+    job=""  bu da alttaki methodlar çalıştırılınca
+zorunlu tutmadan tanımlayabileceğim değişkeni gösterir
+#tanımlı değer de verebilirim bu değişkene mesela developer
+    #name=""
+    #age=0
+    #gender=""  self kullandığımız için 
+    #python ben anlarım bunları tanımlamana
+    #gerek yok diyor
+ 
+    #initializer method
+    def __init__(self,name,age,gender):
+        self.name=name        
+        self.age=age
+        self.gender=gender
+    #method
+    #def test(self):
+    #    print("test")
+    def printName(self):
+        print(self.name)  diyerek üstte initte
+#tanımlanan namei yazdırabiliriz
+
+şimdi de dog sınıfı yapalım
+class Dog():
+
+    def __init__(self,age):
+        self.age=age
+
+köpeğin yaşını bir de 7ile çarpılmış insan yaşını
+tutmak istersek
+
+class Dog():
+    year=7
+    def __init__(self,age):
+        self.age=age
+
+    def humanAge(self):
+        return self.age*self.year
+
+myDog=Dog(3) dersek
+myDog.humanAge()  21 döner
+
+return self.age*Dog.year  şeklinde de yazılabilir
+
+ikinci yöntem de şu. methoda ihtiyaç duymadan yapmak
+
+class Dog():
+    year=7
+    def __init__(self,age=5):  değer atamazsak diye
+default tanımlayabiliriz
+        self.age=age
+        self.dogHumanAge=age*self.year
+        print("dog instance")
+    def humanAge(self):
+        return self.age*self.year
+
+OOP 4 temelden oluşur
+Abstraction
+Encapsulation
+Inheritance
+Polymorphism
+
+Inheritance ile başlayalım
+kalıtım almak demektir bir sınıfın diğer sınıfın
+özelliklerini alması demektir.
+
+class Musician():
+    def __init__(self,name):
+        self.name=name
+        print("musician class")
+
+    def test1(self):
+        print("test1")
+
+    def test2(self):
+        print("test2")
+
+bu sınıfı çok büyüttük diyelim ama birçok methodunu
+kullanan aynı özelliklere sahip başka bir sınıf oluşturmak istesek mesela sanatci sınıfı.
+mesela daha iyi müzisyen sınıfı musicianPlus() yapmak
+istesek
+class MusicianPlus():
+
+şimdi musiciandan kalıtım alsın istiyoruz yoksa
+kodları kopyalarsak aynı işlemleri yeni classta da 
+değiştirmek zorunda kalırız
+
+kalıtım alması için () içine Musician ismini yazıyoruz
+altına da init methodu oluşturup musician.__init__(self)
+oluştururuz
+
+musician classında name zorunlu olduğu için plusı
+tanımlarken name değişkenini de vermemiz lazım
+verdikten sonra artık atil. dedikten sonra
+artık musiciandaki test1 test2 methodları da gelir
+yani initi aynı tutarak diğer methodların da gelmesini
+sağladık.
+class MusicianPlus():
+    
+    def __init__(self,name):
+        Musician.__init__(self,name):
+        print("musician plus")
+
+atil=MusicianPlus("Atlas") artık musiciandaki
+methodlar da gelir
+
+Plus içine 3.method eklersek o da gelir
+
+class MusicianPlus():
+    
+    def __init__(self,name):
+        Musician.__init__(self,name):
+        print("musician plus")
+
+    def test3(self):
+        print("test3")
+
+Plusta test1 methodunu değiştirmek istersek de yapabiliriz
+
+def test1(self):
+    print("test1 test1 test1") eklersek
+artık Plus methodundaki test1i çağırdığımızda
+test1 test1 test1 yazıyor ekrana
+
+
+class MusicianPlus():
+    
+    def __init__(self,name):
+        Musician.__init__(self,name):
+        print("musician plus")
+
+    def test3(self):
+        print("test3")
+
+    #override deniyor üstüne yaz diyoruz
+    def test1(self):
+    print("test1 test1 test1")
+
+Polymorphism: çok biçimlilik
+aynı isimle farklı işler yapmak demektir
+1 classımız var muz sınıfı içinde 1 tane init var
+isim istiyoruz bir de info methodu var.
+bu method da formatlı string döndürüyoruz.
+muz 100 kaloridir diye dönsün
+
+diğer sınıf da elma sınıfı olsun
+iki classta info isimli method aynı isimli ama
+farklı işler yapıyor.
+bu çok da değişik bir bilgi değil
+
+class Banana():
+
+    def __init__(self,name):
+        self.name=name
+
+    def info(self):
+        return f"100 calories {self.name}"
+
+class Apple():
+
+    def __init__(self,name):
+        self.name=name
+
+    def info(self):
+        return f"150 calories {self.name}"
+
+ikisinde de info methodu aynı isimli ve farklı 
+işler yapıyorlar
+
+meyvelistesi yapalım buna da iki classtan aldığımız
+objeleri eklersek
+fruitList=[banana,apple]
+for fruit in fruitList:
+    print(fruit.info())
+böylece hepsinde info sınıfını çalıştırabiliyor
+yani farklı sınıflarda aynı isimli methodlar var diyelim
+hepsini 1 kere de çalıştırabiliriz 
+
+encapsulation: hapsetmek
+herhangi bir değişkene erişilmesin isteyebiliriz
+başka bir sınıftan erişilmemesini isteyebiliriz
+başka biri bozmasın değiştirmesin isteyebiliriz
+erişilmemesi gereken bir kod varsa onu saklı tutmamız
+gerekebiliyor.
+telefon sınıfı yazalım
+class Phone():
+
+    def __init__(self,name,price):
+        self.name=name
+        self.price=price
+
+    def info(self):
+        print(f"{self.name} price is : {self.price}")
+
+iphone=Phone("iPhone 14",500) dedik
+iphone.info() dediğimizde iphone 14 price is :500 döndürüyor
+
+mesela bu sınıfı kullanan başka biri websitesi yapıyor
+ya da dbye bağlayacak
+
+iphone.price=400 derse artık price değişti
+iphone.info() sonucu 400 gelecek
+
+fiyat verildikten sonra değiştirilmesini istemiyorum diyelim
+self.price başına __ 2 alt çizgi koyarsak
+sadece bu sınıfın içinden erişebilir hale getiriyoruz
+
+class Phone():
+
+    def __init__(self,name,price):
+        self.name=name
+        self.__price=price
+
+    def info(self):
+        print(f"{self.name} price is : {self.__price}")
+
+iphone.price=400 dersek artık değişmez 500 olarak kalır
+
+gerçekten değiştirilmesini istiyorsak class içine 
+changePrice methodu koyalım
+
+class Phone():
+
+    def __init__(self,name,price):
+        self.name=name
+        self.__price=price
+
+    def info(self):
+        print(f"{self.name} price is : {self.__price}")
+
+    def changePrice(self,price):
+        self.__price=price
+
+iphone.changePrice()=300 dersek artık
+iphone.info() dediğimizde 300 geldiğini görebiliriz
+
+
+abstraction:soyutlama
+soyut bir sınıf oluşturmada kullanılır
+bize bir plan sağlasın diye yapıyoruz
+bu soyut sınıfı oluşturduğumuz zaman bu sınıfı
+kullanmıyoruz ama bu sınıfın yapısını kullanıyoruz
+
+from abc import ABC,abstractmethod diyoruz
+bununla soyut sınıflar oluşturabiliyoruz
+
+mercedes, tesla bmw vs tanımlayacağız ama bunu
+Car sınıfı denen temel bir sınıfla tanımlayalım diyelim
+
+class Car(ABC):
+
+    @abstractmethod
+    def maxSpeed(self):
+        pass
+şimdi soyut bir sınıf soyut bir method oluşturduk
+bunlar kullanılmak için değildir.
+bu sınıflardan object oluşturamayız
+
+şimdi Teslanın sınıfını oluşturalım
+ama bunu oluştururken artık maxSpeed methodunu oluşturmamız gerekiyor
+
+class Tesla(Car):
+    def maxSpeed(self):
+        print("200 km")
+
+tesla=Tesla() diyoruz
+tesla.maxSpeed() deyince karşımıza
+200 km yazdırır
+
+bir mercedes için yapalım
+class Mercedes(Car):
+    def maxSpeed(self):
+        print("250km")
+
+mercedes=Mercedes()
+mercedes.maxSpeed() dersek 250km yazdırır 
+
+Özel methodlar
+class Fruit():
+
+    def __init__(self,name,calories):
+        self.name=name
+        self.calories=calories
+
+myFruit=Fruit("banana",150) dersek
+myFruit.calories 150 name de banana gelir
+
+print(myFruit) dersek bize fruit objesi oluşturuldu der
+
+biz muz 150 kaloridir yazsın istersek şunu yaparız
+
+bunu yaparken classın __str__metodunu değiştiriyoruz aslında.
+
+class Fruit():
+
+    def __init__(self,name,calories):
+        self.name=name
+        self.calories=calories
+
+    def __str__(self):
+        return f"{self.name}: {self.calories} calories"
+
+bu şekilde instance oluşturduğumuzda
+print(myFruit) dediğimizde banana:150 calories verir
+
+len(myFruit) çalıştırmak istesek hata verir öncelikle.
+
+class Fruit():
+
+    def __init__(self,name,calories):
+        self.name=name
+        self.calories=calories
+
+    def __str__(self):
+        return f"{self.name}: {self.calories} calories"
+
+    def __len__(self):
+        return self.calories
+len(myFruit) 150yi döndürüyor artık
+
+https://www.informit.com/articles/article.aspx?p=453682&seqNum=6
+https://www.pythonlikeyoumeanit.com/Module4_OOP/Special_Methods.html
+
+getitemı override edelim Train içinde
+
+class Train():
+    def __init__(self,name):
+        self.name=name
+
+    def __getitem__(self,key):
+        return self.name  hangi anahtar verilirse 
+namei döndürsün
+
+myTrain=Train("myTrain")  
+myTrain["a"] deyince myTrain döndürüyor
+
+if içine sokalım
+
+class Train():
+    def __init__(self,name):
+        self.name=name
+
+    def __getitem__(self,key):
+        if key=="a":        
+            return self.name
+        else:
+            return "Not found" 
+
+if içine sokunca 
+myTrain["b"] deyince Not found dönüyor çünkü if
+a ise name yazdır diyor
+
+Quiz 3
+
+#1) Aşağıdaki kodun çıktısı ne olacaktır?
+def toplama(a,b):
+    print(a,b)
+
+x = toplama(3,4)
+print(x)  return yapmıyor o yüzden None
+cevap
+3,4
+None
+
+#2) Aşağıdaki kodun çıktısı ne olacaktır?
+def usselIslem(x=5,y=3):
+    print(x ** y)
+usselIslem(2,4)
+16
+
+#3) Aynı fonksiyonu aşağıdaki gibi çağırırsak çıktı ne olur?
+usselIslem()
+125  5üzeri 3ten
+
+#4) Aşağıdaki kodun çıktısı ne olacaktır?
+def myLoop(*args):
+    for element in args:
+        print(element / 2)
+myLoop(3,2,1,5,3,4)
+
+# cevap
+1.5 1 0.5 2.5 1.5 2
+
+#5) Aşağıdaki dizide belirtilen rakamları, myFunction fonksiyonuna tabi tutup, yeni bir dizi oluşturunuz
+def myFunc(num):
+    return num ** 3
+myList = [2,3,4,5,6]
+# cevap
+list(map(myFunc,mylist))
+8,27,64,125,296
+
+
+#6) Aşağıdaki string dizisinde, içinde sadece XYZ geçen barkodları gösterecek yeni bir liste oluşturunuz
+barkodDizisi = ["ABC231","SA3123XYZ","XYZA123Q","QRE1231KJ","X112QGL"]
+# cevap
+list(filter(lambda string: "XYZ" in string,barkodDizisi)) 
+if "XYZ" in barkodDizisi:
+    print(barkkodDizisi)
+
+#7) Aşağıdaki kodu okursanız, ornekFonksiyon çalıştırıldığında en altta yazdırılan print size neyi yazdıracaktır?
+myVar = "Atil Samancioglu"
+
+def ornekFonksiyon():
+    myVar = "Atil"
+    
+    def digerFonksiyon():
+        print(myVar)
+    
+    digerFonksiyon()
+#ornekFonksiyon()
+# cevap
+Atil
+
+#8) Aşağıda yazdırılan sınıfı incelediğinizde kedim.yasiCarp() kodunun çıktısı ne olacaktır?
+class Kedi():
+        
+    def __init__(self,isim,yas=5):
+        self.isim = isim
+        self.yas = yas
+        
+    def yasiCarp(self):
+        return self.yas * 3
+
+kedim = Kedi("Tonton")
+kedim.yasiCarp()
+# cevap
+5*3 15
+
+#9) Aşağıdaki kodun çıktısı ne olacaktır?
+class Ogrenci():
+    
+    def __init__(self,isim,sinavNotu):
+        self.isim = isim
+        self.__sinavNotu = sinavNotu
+    
+    def notuGoster(self):
+        print(f"{self.isim} sınav notu: {self.__sinavNotu}")
+
+ogrenci = Ogrenci("Mehmet",85)
+ogrenci.__sinavNotu = 75
+#ogrenci.notuGoster()
+# cevap
+85
+#10) Soyut sınıflar ve methodlar oluşturmamıza olanak tanıyan, kodlarımızı daha planlı şekilde yazmamızı mümkün kılan
+# aynı zamanda büyük projelerde bize yapısal olarak fayda sağlayabilecek OOP prensibinin adı nedir?
+# cevap
+abstraction
+
+Handling Errors: Hataları ele almak
+
+try except
+try içine hata alabilecek kodu yazarız
+try:
+    myAge=int(input("enter age: "))
+    print(myAge)
+except:
+    print("enter your age!")
+
+enter age atil girersek excepte gider
+print your age yazar
+
+try:
+    myAge=int(input("enter age: "))
+    print(myAge)
+except ValueError:
+    print("enter your age!")
+
+doğru girene kadar uğraşsın dersek while içine sokarız
+
+while True:
+    try:
+        myAge=int(input("enter age: "))
+        print(myAge)
+        break
+    except:
+        print("enter your age!")
+
+finally her zaman çalışır
+
+while True:
+    try:
+        myAge=int(input("enter age: "))
+        print(myAge)
+        break
+    except:
+        print("enter your age!")
+    else:
+        print("else executed")
+    finally:
+        print("finally")
+
+şimdi break elsee ekleyelim
+
+while True:
+    try:
+        myAge=int(input("enter age: "))
+        print(myAge)
+    except:
+        print("enter your age!")
+    else:
+        print("else executed")
+        break
+    finally:
+        print("finally")
+
+Dosyalarla çalışmak:
+%%writefile myfile.txt
+test 1
+test 2
+test 4
+
+bu sadece notebooka özeldir 
+
+bu dosyayı açalım şimdi
+zor yolu görelim
+myFile=open("myfile.txt")
+myFile.read()  ile içini okuruz
+myFile.read()  ikinci kere okuyalım dedik bu sefer 
+boş gösterdi
+
+myFile.seek(0) dersek dosyanın başına gider
+yine okuma yapar
+
+myFile.read()
+myFile.read()  yine boş gösterdi
+
+bu kadar uğraşmayalım diye with kullanırız
+with keywordu sayesinde içindeki işlemleri
+otomatik yapacak.
+with open("myfile.txt") as myFile:
+    myContent=myFile.read()
+
+myContent çağırdığımızda içini gösterir
+
+with open("myfile.txt",mode="w") as myNewFile:
+    myNewFile.write("test4")  böyle yapınca içeriğini
+komple siliyor test4 yazıyor
+
+with open("myfile.txt",mode="r") as myFile2:
+    myContent=myFile2.read()
+
+myContent dersek test4 döner bize
+
+w ile açmak yazmak
+r read
+a append
+
+with open("myfile.txt",mode="a") as myNewFile3:
+    myNewFile3.write("test5")
+
+sonuna test 5 ekler
+
+with open("myfile.txt",mode="r") as myFile4:
+    myContent=myFile4.read()
+
+sonra myContenti çağırdığımızda 
+test4 sonuna test5 eklenmiş oldu
+
+PyCharm indirdik
+https://www.jetbrains.com/pycharm/download/download-thanks.html?platform=windows&code=PCC
+
+proje oluşturduktan sonra main.py bizim için oluşmuş
+Python görmezse
+Settings içinde ilgili projenin olduğu satıra gidilir
+Add Interpreter denilir
+python exesinin olduğu klasör gösterilir
+
+venv altında virtual environment
+kütüphaneler, pip,python vs hepsi var.
+
+pycharm içinde import numpy dediğimizde hata verirse
+importu üstüne gelip install deriz ya da 
+alt+enter ile yüklenmesini sağlarız
+böylece venv kısmına yüklenir
+
+Bölüm 13 
+Modüller
+modül yazılmış python kodudur.
+paket de bu modüllerden oluşan bir program olabilir
+Paket büyük birim modül küçük birim olarak düşünebiliriz
+kendi modülümüzü yazalım
+projemizde yeni bir python file açalım
+atilmodule diyelim adına
+içine ilk olarak alttakini ekleyelim
+def example_func():
+    print("atil module function")
+
+example_func()
+
+bu yazdığım kodları kendim ya da başkası kullansın
+istiyoruz.
+
+bu modül çok büyük olabilir ya da bunun içindeki bir 
+fonksiyonu kullanmak isteyebiliriz
+
+main.py'ye gelip atilmodule. dersek
+karşımıza example_func gelir
+
+import atilmodule
+atilmodule.example_func()
+
+ya da sadece example_func çağırmak istersek
+from atilmodule import example_func diyebiliriz
+
+googleda arama yaparken pypi ile python paketlerinin indexlerini görebiliriz.
+
+şimdi paketlere bakalım
+paket içinde birden fazla modül olabilir
+hatta paket içinde paketler de olabilir.
+Şimdi new python package diyelim
+ animalpackage diyelim
+içinde otomatik olarak init.py otomatik dosya oluştu.
+init olunca bunun paket olduğunu anlıyor python.
+paket içinde info dosyası oluşturalım
+info.py
+
+def info():
+    print("animal package") içine ekledik
+
+şimdi animal package altında CatPackage oluşturalım
+CatPackage içine meow python file oluşturalım
+def speak():
+    print("meow")
+
+main.pyye geliyorum
+
+animalpackagedaki info.pyyi çağıralım
+from AnimalPackage import info deriz
+artık info.info() yu kullanabilir hale geldik
+
+Cat'in içindeki meowı alalım
+
+from AnimalPackage.CatPackage import meow
+şeklinde çekeriz
+CatPackage subpackage oluyor
+
+artık meow.speak() fonksiyona da ulaşabiliyoruz
+bir dosya mainden çalıştırılıyorsa ya da kendi başına
+çalıştırılıyorsa if kısmı çalışsın başka yerden 
+çalıştırılsın isteniyorsa else çalışsın diyebiliriz
+alttaki şekilde
+
+if __name__=="__main__":
+    speak_direct()
+else:
+    speak_imported()
+
+kodlarını indirdik
+P02-PackageAndModule-main.zip
+https://github.com/atilsamancioglu/P02-PackageAndModule
+
+Youtube indirici
+youtubedan video indiren python programlara bakalım
+how to download youtube videos python arattık
+pytube diye kütüphane varmış
+pip install pytube
+from pytube import Youtube dedikten sonra
+streams.first download deriz
+pycharmda yeni proje açıp youtubedownloader diyoruz
+main.py içini siliyoruz
+
+import pytube
+
+url=input("enter video url")
+
+pytube.YouTube(url).streams.get_highest_resolution()
+streams.ten sonra çeşitli fonksiyonları çağırabiliyoruz
+
+lib içinde pytube açınca main.py altında bir çok
+metodu görebiliriz
+birsürü py dosyası var
+
+download da videoyu kaydedecek yeri istiyor
+path =""  dersek bu dosyayı çalıştırdığımız yere
+indirir.
+
+https://www.youtube.com/watch?v=HTK1SN6j1AQ  verdik urle
+
+---------------------
+import pytube
+url = input("enter video url:")
+path = ""
+pytube.YouTube(url).streams.get_highest_resolution().download(path)
+#https://www.youtube.com/watch?v=HTK1SN6j1AQ  verdik
+----------------------
+
+67 Arka plan silici
+how to remove background python
+gorselin arkasını kaldırıp sadece objeyi almak istersek.
+
+rembg yükleyin diyor
+cv2 kullanan var
+pip install rembg dedik
+sincap resmi bulup indirdik
+yeni proje açtık backgroundremover dedik
+yine image içini silip kodumuzu yazalım
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
