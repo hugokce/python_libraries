@@ -16,3 +16,6 @@ for i in range(begin,end+1):
     res=res['scan'][target_ip]['tcp'][i]['state']
 
     print(f'port {i} is {res}.')
+
+
+Source:https://www.geeksforgeeks.org/port-scanner-using-python-nmap/
